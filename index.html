@@ -1,0 +1,2588 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>INCOGNITECH - By the Students, For the Students</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+
+
+    <script>
+
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'incogni-silver': '#D1D5DB',
+                        'incogni-white': '#ffffff',
+                        'incogni-red': '#B91C1C',
+                        'incogni-black': '#000000',
+                        'incogni-dark': '#1a1a1a'
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+
+        .gradient-bg {
+            background: linear-gradient(135deg, #FFFFFF 0%, #D1D5DB 100%);
+        }
+
+        .hover-lift {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .hover-lift:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(255, 255, 255, 0.2);
+        }
+
+        .pulse-silver {
+            animation: pulse-silver 2s infinite;
+        }
+
+        @keyframes pulse-silver {
+
+            0%,
+            100% {
+                box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.5);
+            }
+
+            50% {
+                box-shadow: 0 0 0 20px rgba(255, 255, 255, 0);
+            }
+        }
+
+        .pulse-text {
+            animation: pulse-text 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse-text {
+
+            0%,
+            100% {
+                opacity: 0.8;
+                transform: scale(1);
+            }
+
+            50% {
+                opacity: 1;
+                transform: scale(1.05);
+            }
+        }
+
+        /* Animated Background Elements */
+        .floating-shapes {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            pointer-events: none;
+        }
+
+        .shape {
+            position: absolute;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 50%;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .shape:nth-child(1) {
+            width: 80px;
+            height: 80px;
+            left: 10%;
+            animation-delay: 0s;
+            animation-duration: 6s;
+        }
+
+        .shape:nth-child(2) {
+            width: 120px;
+            height: 120px;
+            left: 20%;
+            animation-delay: 1s;
+            animation-duration: 8s;
+        }
+
+        .shape:nth-child(3) {
+            width: 60px;
+            height: 60px;
+            left: 70%;
+            animation-delay: 2s;
+            animation-duration: 7s;
+        }
+
+        .shape:nth-child(4) {
+            width: 100px;
+            height: 100px;
+            left: 80%;
+            animation-delay: 3s;
+            animation-duration: 9s;
+        }
+
+        .shape:nth-child(5) {
+            width: 40px;
+            height: 40px;
+            left: 50%;
+            animation-delay: 4s;
+            animation-duration: 5s;
+        }
+
+        @keyframes float {
+
+            0%,
+            100% {
+                transform: translateY(100vh) rotate(0deg);
+                opacity: 0;
+            }
+
+            10% {
+                opacity: 1;
+            }
+
+            90% {
+                opacity: 1;
+            }
+
+            100% {
+                transform: translateY(-100px) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        /* Particle System */
+        .particles {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            pointer-events: none;
+        }
+
+        .particle {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: #FFFFFF;
+            border-radius: 50%;
+            animation: particle-float 8s linear infinite;
+        }
+
+        @keyframes particle-float {
+            0% {
+                transform: translateY(100vh) translateX(0px);
+                opacity: 0;
+            }
+
+            10% {
+                opacity: 1;
+            }
+
+            90% {
+                opacity: 1;
+            }
+
+            100% {
+                transform: translateY(-100px) translateX(100px);
+                opacity: 0;
+            }
+        }
+
+        /* Interactive Card Animations */
+        .feature-card {
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            cursor: pointer;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px) scale(1.05);
+            box-shadow: 0 25px 50px rgba(255, 255, 255, 0.2);
+        }
+
+        .feature-card:hover .feature-icon {
+            animation: bounce 0.6s ease-in-out;
+        }
+
+        @keyframes bounce {
+
+            0%,
+            20%,
+            50%,
+            80%,
+            100% {
+                transform: translateY(0);
+            }
+
+            40% {
+                transform: translateY(-10px);
+            }
+
+            60% {
+                transform: translateY(-5px);
+            }
+        }
+
+        /* Subtle Glow Text Effect */
+        .glow-text {
+            text-shadow: 0 0 5px #FFFFFF;
+        }
+
+        /* Morphing Background */
+        .morphing-bg {
+            background: linear-gradient(-45deg, #000000, #1a1a1a, #000000, #2a2a2a);
+            background-size: 400% 400%;
+            animation: gradient-shift 15s ease infinite;
+        }
+
+        @keyframes gradient-shift {
+            0% {
+                background-position: 0% 50%;
+            }
+
+            50% {
+                background-position: 100% 50%;
+            }
+
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        /* Interactive Button Effects */
+        .interactive-btn {
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .interactive-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: left 0.5s;
+        }
+
+        .interactive-btn:hover::before {
+            left: 100%;
+        }
+
+        /* Page transition effects */
+        .page {
+            display: none;
+            animation: fadeIn 0.5s ease-in-out;
+        }
+
+        .page.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Scroll-triggered animations */
+        .fade-in-up {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+
+        .fade-in-up.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Loading spinner for interactions */
+        .loading-spinner {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border: 3px solid rgba(255, 255, 255, 0.664);
+            border-radius: 50%;
+            border-top-color: #FFFFFF;
+            animation: spin 1s ease-in-out infinite;
+        }
+
+        @keyframes spin {
+            to {
+                transform: rotate(360deg);
+            }
+        }
+        
+        .light-theme {
+            background-color: #f3f4f6 !important;
+            color: #111827 !important;
+        }
+        .light-theme .bg-incogni-black, .light-theme nav { background-color: #ffffff !important; color: #111827 !important; border-color: rgba(0,0,0,0.1) !important;}
+        .light-theme .text-white, .light-theme .text-incogni-white { color: #111827 !important; }
+        .light-theme .text-gray-300 { color: #4b5563 !important; }
+        .light-theme .text-gray-400 { color: #6b7280 !important; }
+        .light-theme .bg-white\/10 { background-color: rgba(0,0,0,0.05) !important; border-color: rgba(0,0,0,0.1) !important; color: #111827 !important; }
+        .light-theme .bg-white\/5 { background-color: #ffffff !important; border-color: rgba(0,0,0,0.1) !important; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1); }
+        .light-theme input, .light-theme textarea, .light-theme select { color: #111827 !important; background-color: #ffffff !important; }
+        .light-theme .floating-shapes .shape { opacity: 0.1; }
+        .light-theme .morphing-bg .from-incogni-red\/10 { opacity: 0; }
+    </style>
+</head>
+
+<body class="morphing-bg text-white overflow-x-hidden">
+    <!-- Cinematic Background -->
+    <div class="fixed inset-0 z-0 pointer-events-none opacity-40">
+        <div
+            class="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-incogni-red/10 via-black to-black animate-[pulse_8s_ease-in-out_infinite]">
+        </div>
+    </div>
+
+    <!-- Floating Shapes Background -->
+    <div class="floating-shapes fixed inset-0 z-0">
+        <div class="shape"></div>
+        <div class="shape"></div>
+        <div class="shape"></div>
+        <div class="shape"></div>
+        <div class="shape"></div>
+    </div>
+
+    <!-- Particles Background -->
+    <div class="particles fixed inset-0 z-0" id="particles-container"></div>
+
+    <!-- Navigation -->
+    <nav
+        class="fixed top-0 w-full z-50 bg-incogni-black/90 backdrop-blur-md border-b border-incogni-white/20 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center space-x-2 cursor-pointer" onclick="showPage('home')">
+                    <svg class="w-8 h-8 drop-shadow-lg" viewBox="0 0 24 24" fill="none"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12 3L1 9L12 15L21 10.09V17H23V9L12 3Z" fill="#ffffff" />
+                        <path d="M5 13.18V17.18C5 20 8.13 22 12 22C15.87 22 19 20 19 17.18V13.18L12 17L5 13.18Z"
+                            fill="#B91C1C" />
+                    </svg>
+                    <span class="text-xl font-bold text-incogni-white">INCOGNITECH</span>
+
+                </div>
+                <div class="hidden md:flex space-x-8">
+                    <a href="#" onclick="showPage('home')"
+                        class="text-white hover:text-incogni-white transition-colors">Home</a>
+                    <a href="#" onclick="showPage('features')"
+                        class="text-white hover:text-incogni-white transition-colors">Features</a>
+                    <a href="#" onclick="showPage('mission')"
+                        class="text-white hover:text-incogni-white transition-colors">Mission</a>
+                    <a href="#" onclick="showPage('about')"
+                        class="text-white hover:text-incogni-white transition-colors">About Me</a>
+                </div>
+                <div class="flex items-center space-x-4">
+                    <div id="user-profile-badge" class="hidden items-center space-x-2">
+                        <div class="w-8 h-8 bg-white/20 rounded-full flex items-center justify-center overflow-hidden">
+                            <span id="user-initial" class="text-white font-bold text-sm">U</span>
+                            <img id="user-avatar-img" src="" class="hidden w-full h-full object-cover">
+                        </div>
+                        <span id="user-name-display"
+                            class="text-white text-sm font-semibold hidden md:block">User</span>
+                        <button onclick="showPage('profile')" class="text-xs text-blue-400 hover:text-blue-300 ml-4">Profile</button>
+                        <button onclick="handleLogout()"
+                            class="text-xs text-red-400 hover:text-red-300 ml-2">Logout</button>
+                    </div>
+                    <button id="theme-toggle" class="p-2 rounded-full hover:bg-white/10 transition-colors ml-2 mr-2" onclick="toggleTheme()">
+                        <svg id="theme-toggle-icon" class="w-5 h-5 text-incogni-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path></svg>
+                    </button>
+                    <button id="join-now-btn"
+                        class="bg-incogni-white text-incogni-black px-6 py-2 rounded-full font-semibold hover:bg-incogni-silver transition-colors pulse-silver"
+                        onclick="showAuthModal()">
+                        Join Now
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- AUTH MODAL -->
+    <div id="auth-modal" class="fixed inset-0 bg-black/80 hidden items-center justify-center z-[100] backdrop-blur-sm">
+        <div class="bg-incogni-black border-2 border-incogni-white rounded-3xl p-8 max-w-md w-full mx-4 relative transform scale-0 transition-transform duration-300"
+            id="auth-modal-content">
+            <button onclick="closeAuthModal()" class="absolute top-4 right-4 text-gray-400 hover:text-white">✕</button>
+            <div class="text-center mb-6">
+                <svg class="w-16 h-16 mx-auto mb-4 drop-shadow-lg" viewBox="0 0 24 24" fill="none"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12 3L1 9L12 15L21 10.09V17H23V9L12 3Z" fill="#ffffff" />
+                    <path d="M5 13.18V17.18C5 20 8.13 22 12 22C15.87 22 19 20 19 17.18V13.18L12 17L5 13.18Z"
+                        fill="#B91C1C" />
+                </svg>
+                <h3 class="text-2xl font-bold text-white mb-2" id="auth-title">Welcome Back</h3>
+                <p class="text-gray-400 text-sm" id="auth-subtitle">Login to access your account</p>
+            </div>
+
+            <form id="auth-form" onsubmit="handleAuthSubmit(event)" class="space-y-4">
+                <div id="name-group" class="hidden">
+                    <label class="block text-sm font-medium text-gray-300 mb-1">Full Name</label>
+                    <input type="text" id="auth-name" placeholder="John Doe"
+                        class="w-full px-4 py-3 bg-white/10 border border-incogni-white/30 rounded-lg text-white placeholder-gray-400 focus:border-incogni-white focus:outline-none">
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-gray-300 mb-1">Email Address</label>
+                    <input type="email" id="auth-email" placeholder="you@example.com" required
+                        class="w-full px-4 py-3 bg-white/10 border border-incogni-white/30 rounded-lg text-white placeholder-gray-400 focus:border-incogni-white focus:outline-none">
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-gray-300 mb-1">Password</label>
+                    <input type="password" id="auth-password" placeholder="••••••••" required
+                        class="w-full px-4 py-3 bg-white/10 border border-incogni-white/30 rounded-lg text-white placeholder-gray-400 focus:border-incogni-white focus:outline-none">
+                </div>
+
+                <div id="auth-error" class="text-red-500 text-sm hidden text-center"></div>
+
+                <button type="submit" id="auth-submit-btn"
+                    class="w-full bg-incogni-white text-incogni-black py-3 rounded-full font-bold hover:bg-incogni-silver transition-colors mt-2">
+                    Login
+                </button>
+            </form>
+
+            <div class="mt-6 text-center text-sm text-gray-400">
+                <span id="auth-switch-text">Don't have an account?</span>
+                <button onclick="toggleAuthMode()" class="text-incogni-white hover:underline ml-1 font-semibold"
+                    id="auth-switch-btn">Sign up</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- PROFILE PAGE -->
+    <section id="profile" class="page min-h-screen pt-24 pb-12 px-4 hidden">
+        <div class="max-w-3xl mx-auto">
+            <h2 class="text-3xl font-bold text-incogni-white mb-8">My Profile</h2>
+            <div class="bg-white/5 backdrop-blur-sm border border-incogni-white/20 rounded-3xl p-8">
+                <form id="profile-form" onsubmit="handleProfileUpdate(event)" class="space-y-6">
+                    <div class="flex items-center space-x-6 mb-8">
+                        <div class="w-24 h-24 bg-white/10 rounded-full flex items-center justify-center overflow-hidden border-2 border-incogni-white">
+                            <img id="profile-avatar-preview" src="" class="hidden w-full h-full object-cover">
+                            <span id="profile-initial-preview" class="text-4xl font-bold text-white">U</span>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-300 mb-2">Profile Picture</label>
+                            <input type="file" id="profile-avatar-upload" accept="image/*" class="text-sm text-gray-400 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-white/10 file:text-incogni-white hover:file:bg-white/20">
+                        </div>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-300 mb-2">Full Name</label>
+                        <input type="text" id="profile-name" class="w-full px-4 py-3 bg-white/10 border border-incogni-white/30 rounded-lg text-white focus:border-incogni-white focus:outline-none">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-300 mb-2">Email Address (Read-only)</label>
+                        <input type="email" id="profile-email" readonly class="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-lg text-gray-400 cursor-not-allowed">
+                    </div>
+                    <button type="submit" id="profile-submit-btn" class="bg-incogni-white text-incogni-black px-8 py-3 rounded-full font-bold hover:bg-incogni-silver transition-colors">
+                        Save Changes
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- HOME PAGE -->
+    <div id="home" class="page active">
+        <!-- Hero Section -->
+        <section class="min-h-screen flex items-center justify-center relative overflow-hidden pt-16">
+            <div class="absolute inset-0 bg-gradient-to-br from-incogni-black via-gray-900 to-incogni-black"></div>
+            <div class="absolute top-20 left-10 w-32 h-32 bg-incogni-white/10 rounded-full blur-3xl"></div>
+            <div class="absolute bottom-20 right-10 w-48 h-48 bg-incogni-white/5 rounded-full blur-3xl"></div>
+
+            <div class="relative z-10 text-center max-w-6xl mx-auto px-4">
+                <div class="mb-12">
+                    <h1 class="text-6xl md:text-8xl font-black mb-6 flex flex-col items-center justify-center">
+                        <svg class="w-24 h-24 md:w-32 md:h-32 mb-6 drop-shadow-2xl hover:scale-105 transition-transform duration-500"
+                            viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M12 3L1 9L12 15L21 10.09V17H23V9L12 3Z" fill="#ffffff" />
+                            <path d="M5 13.18V17.18C5 20 8.13 22 12 22C15.87 22 19 20 19 17.18V13.18L12 17L5 13.18Z"
+                                fill="#B91C1C" />
+                        </svg>
+                        <span class="text-incogni-white glow-text tracking-tight">INCOGNITECH</span>
+                    </h1>
+                    <p class="text-2xl md:text-3xl font-light text-incogni-white mb-4">|| By the Students For the
+                        Students ||</p>
+                    <div class="text-xl md:text-2xl text-gray-300">
+                        <div class="pulse-text">Connect - Collaborate - Create</div>
+                    </div>
+                </div>
+
+                <div class="flex flex-col sm:flex-row gap-6 justify-center items-center">
+                    <button
+                        class="bg-incogni-white text-incogni-black px-10 py-4 rounded-full font-bold text-xl hover:bg-incogni-silver transition-all transform hover:scale-105 pulse-silver interactive-btn"
+                        onclick="handleGetStarted()">
+                        Get Started Today
+                    </button>
+                    <button
+                        class="border-2 border-incogni-white text-incogni-white px-10 py-4 rounded-full font-bold text-xl hover:bg-incogni-white hover:text-incogni-black transition-all interactive-btn"
+                        onclick="showPage('features')">
+                        Explore Features
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Me Section -->
+        <section class="py-20 bg-incogni-dark">
+            <div class="max-w-6xl mx-auto px-4 text-center">
+                <h2 class="text-4xl md:text-6xl font-black text-incogni-white mb-12 fade-in-up">About Me</h2>
+                <div class="max-w-4xl mx-auto">
+                    <div class="bg-white/5 backdrop-blur-sm border border-incogni-white/20 rounded-3xl p-8 mb-8">
+                        <div
+                            class="w-40 h-40 rounded-full mx-auto mb-6 overflow-hidden border-2 border-incogni-red shadow-[0_0_15px_rgba(185,28,28,0.7)]">
+                            <img src="profile.png" alt="Sumit Sawankar" class="w-full h-full object-cover">
+                        </div>
+                        <h3 class="text-2xl font-bold text-incogni-white mb-4">Sumit Sawankar - Student Developer &
+                            Innovator</h3>
+                        <p class="text-lg text-gray-300 mb-6 leading-relaxed">
+                            Hi! I'm Sumit Sawankar, a passionate student developer who believes in the power of
+                            collaboration and knowledge sharing.
+                            INCOGNITECH was born from my own experiences struggling to find study materials, project
+                            partners, and
+                            opportunities to connect with like-minded students.
+                        </p>
+                        <p class="text-lg text-gray-300 mb-6 leading-relaxed">
+                            As an Information Technology student pursuing B.Tech, I've experienced firsthand the
+                            challenges of academic life - from finding
+                            quality study notes to connecting with peers for group projects. That's why I created this
+                            platform to
+                            bridge these gaps and empower students worldwide.
+                        </p>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                        <div
+                            class="bg-white/5 backdrop-blur-sm border border-incogni-white/20 rounded-2xl p-6 hover-lift">
+                            <div class="text-3xl mb-4">🎓</div>
+                            <h4 class="text-incogni-white font-semibold mb-2">Education</h4>
+                            <p class="text-sm text-gray-300">B.Tech Information Technology Student passionate about
+                                creating solutions for student communities</p>
+                        </div>
+                        <div
+                            class="bg-white/5 backdrop-blur-sm border border-incogni-white/20 rounded-2xl p-6 hover-lift">
+                            <div class="text-3xl mb-4">💡</div>
+                            <h4 class="text-incogni-white font-semibold mb-2">Vision</h4>
+                            <p class="text-sm text-gray-300">To create a unified platform where students can thrive,
+                                collaborate, and succeed together</p>
+                        </div>
+                        <div
+                            class="bg-white/5 backdrop-blur-sm border border-incogni-white/20 rounded-2xl p-6 hover-lift">
+                            <div class="text-3xl mb-4"><svg class="w-10 h-10 mb-4 text-incogni-white" fill="none"
+                                    stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M13 10V3L4 14h7v8l9-11h-7z"></path>
+                                </svg></div>
+                            <h4 class="text-incogni-white font-semibold mb-2">Mission</h4>
+                            <p class="text-sm text-gray-300">Empowering students through technology, collaboration, and
+                                shared knowledge</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Features Preview Section -->
+        <section class="py-20 bg-incogni-black">
+            <div class="max-w-7xl mx-auto px-4">
+                <h2 class="text-4xl md:text-6xl font-black text-center text-incogni-white mb-16">Platform Features</h2>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+                    <div class="bg-white/5 backdrop-blur-sm border border-incogni-white/20 rounded-2xl p-6 feature-card"
+                        onclick="showPage('notes')">
+                        <svg class="w-10 h-10 mb-4 text-incogni-white" fill="none" stroke="currentColor"
+                            viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253">
+                            </path>
+                        </svg>
+                        <h3 class="text-incogni-white font-semibold mb-2">Notes Marketplace</h3>
+                        <p class="text-sm text-gray-300">Upload & buy class notes instantly</p>
+                        <div class="mt-4 text-xs text-incogni-white opacity-70">Click to explore →</div>
+                    </div>
+
+                    <div class="bg-white/5 backdrop-blur-sm border border-incogni-white/20 rounded-2xl p-6 feature-card"
+                        onclick="showPage('collaboration')">
+                        <svg class="w-10 h-10 mb-4 text-incogni-white" fill="none" stroke="currentColor"
+                            viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z">
+                            </path>
+                        </svg>
+                        <h3 class="text-incogni-white font-semibold mb-2">Project Collaboration</h3>
+                        <p class="text-sm text-gray-300">Find skilled students for your projects</p>
+                        <div class="mt-4 text-xs text-incogni-white opacity-70">Click to explore →</div>
+                    </div>
+
+                    <div class="bg-white/5 backdrop-blur-sm border border-incogni-white/20 rounded-2xl p-6 feature-card"
+                        onclick="showPage('startup')">
+                        <svg class="w-10 h-10 mb-4 text-incogni-white" fill="none" stroke="currentColor"
+                            viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M13 10V3L4 14h7v8l9-11h-7z"></path>
+                        </svg>
+                        <h3 class="text-incogni-white font-semibold mb-2">Startup & VC Connect</h3>
+                        <p class="text-sm text-gray-300">Pitch ideas & connect with investors</p>
+                        <div class="mt-4 text-xs text-incogni-white opacity-70">Click to explore →</div>
+                    </div>
+
+                    <div class="bg-white/5 backdrop-blur-sm border border-incogni-white/20 rounded-2xl p-6 feature-card"
+                        onclick="showPage('chat')">
+                        <svg class="w-10 h-10 mb-4 text-incogni-white" fill="none" stroke="currentColor"
+                            viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z">
+                            </path>
+                        </svg>
+                        <h3 class="text-incogni-white font-semibold mb-2">Real-time Chat</h3>
+                        <p class="text-sm text-gray-300">Collaborate anytime, anywhere</p>
+                        <div class="mt-4 text-xs text-incogni-white opacity-70">Click to explore →</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- NOTES MARKETPLACE PAGE -->
+    <div id="notes" class="page">
+        <section class="min-h-screen pt-20 pb-12">
+            <div class="max-w-7xl mx-auto px-4">
+                <div class="text-center mb-12">
+                    <h1 class="text-5xl md:text-7xl font-black text-incogni-white mb-4 glow-text"><svg
+                            class="w-10 h-10 mb-4 text-incogni-white" fill="none" stroke="currentColor"
+                            viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253">
+                            </path>
+                        </svg> Notes Marketplace
+                    </h1>
+                    <p class="text-xl text-gray-300 max-w-3xl mx-auto">Transform your study notes into income while
+                        helping fellow students succeed</p>
+                </div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-12">
+                    <!-- Upload Section -->
+                    <div class="bg-white/5 backdrop-blur-sm border border-incogni-white/20 rounded-3xl p-8">
+                        <h2 class="text-2xl font-bold text-incogni-white mb-6">📤 Upload Your Notes</h2>
+                        <form class="space-y-4" onsubmit="handlePitchSubmission(event)">
+                            <div>
+                                <label class="block text-sm font-medium text-gray-300 mb-2">Course Name</label>
+                                <input type="text" placeholder="e.g., CS101 - Data Structures"
+                                    class="w-full px-4 py-3 bg-white/10 border border-incogni-white/30 rounded-lg text-white placeholder-gray-400 focus:border-incogni-white focus:outline-none">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-gray-300 mb-2">Price (₹)</label>
+                                <input type="number" placeholder="75"
+                                    class="w-full px-4 py-3 bg-white/10 border border-incogni-white/30 rounded-lg text-white placeholder-gray-400 focus:border-incogni-white focus:outline-none">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-gray-300 mb-2">Description</label>
+                                <textarea placeholder="Comprehensive notes covering all topics..." rows="3"
+                                    class="w-full px-4 py-3 bg-white/10 border border-incogni-white/30 rounded-lg text-white placeholder-gray-400 focus:border-incogni-white focus:outline-none"></textarea>
+                            </div>
+                            <div class="border-2 border-dashed border-incogni-white/30 rounded-lg p-8 text-center">
+                                <div class="text-4xl mb-4">📁</div>
+                                <p class="text-gray-300">Drag & drop your files here or click to browse</p>
+                                <button type="button"
+                                    class="mt-4 bg-incogni-white text-incogni-black px-6 py-2 rounded-full font-semibold hover:bg-incogni-silver transition-colors">
+                                    Choose Files
+                                </button>
+                            </div>
+                            <button type="submit"
+                                class="w-full bg-incogni-white text-incogni-black py-3 rounded-full font-bold hover:bg-incogni-silver transition-colors">
+                                Upload & Publish
+                            </button>
+                        </form>
+                    </div>
+
+                    <!-- Browse Section -->
+                    <div class="bg-white/5 backdrop-blur-sm border border-incogni-white/20 rounded-3xl p-8">
+                        <h2 class="text-2xl font-bold text-incogni-white mb-6">🔍 Browse Notes</h2>
+                        <div class="space-y-4">
+                            <div class="bg-white/10 rounded-xl p-4 hover:bg-white/15 transition-colors cursor-pointer">
+                                <div class="flex justify-between items-start mb-2">
+                                    <h3 class="font-semibold text-incogni-white">CS101 - Data Structures</h3>
+                                    <span
+                                        class="bg-incogni-white text-incogni-black px-3 py-1 rounded-full text-sm font-bold">₹75</span>
+                                </div>
+                                <p class="text-sm text-gray-300 mb-2">Complete notes with examples and practice problems
+                                </p>
+                                <div class="flex items-center justify-between">
+                                    <div class="flex items-center space-x-2">
+                                        <span class="text-incogni-silver">⭐⭐⭐⭐⭐</span>
+                                        <span class="text-xs text-gray-400">(24 reviews)</span>
+                                    </div>
+                                    <button
+                                        class="bg-incogni-white text-incogni-black px-4 py-1 rounded-full text-sm font-semibold hover:bg-incogni-silver transition-colors">
+                                        Buy Now
+                                    </button>
+                                </div>
+                            </div>
+
+                            <div class="bg-white/10 rounded-xl p-4 hover:bg-white/15 transition-colors cursor-pointer">
+                                <div class="flex justify-between items-start mb-2">
+                                    <h3 class="font-semibold text-incogni-white">Physics 201 - Quantum Mechanics</h3>
+                                    <span
+                                        class="bg-incogni-white text-incogni-black px-3 py-1 rounded-full text-sm font-bold">₹95</span>
+                                </div>
+                                <p class="text-sm text-gray-300 mb-2">Detailed explanations with diagrams and formulas
+                                </p>
+                                <div class="flex items-center justify-between">
+                                    <div class="flex items-center space-x-2">
+                                        <span class="text-incogni-silver">⭐⭐⭐⭐⭐</span>
+                                        <span class="text-xs text-gray-400">(18 reviews)</span>
+                                    </div>
+                                    <button
+                                        class="bg-incogni-white text-incogni-black px-4 py-1 rounded-full text-sm font-semibold hover:bg-incogni-silver transition-colors">
+                                        Buy Now
+                                    </button>
+                                </div>
+                            </div>
+
+                            <div class="bg-white/10 rounded-xl p-4 hover:bg-white/15 transition-colors cursor-pointer">
+                                <div class="flex justify-between items-start mb-2">
+                                    <h3 class="font-semibold text-incogni-white">Math 301 - Calculus III</h3>
+                                    <span
+                                        class="bg-incogni-white text-incogni-black px-3 py-1 rounded-full text-sm font-bold">₹60</span>
+                                </div>
+                                <p class="text-sm text-gray-300 mb-2">Step-by-step solutions and theorem proofs</p>
+                                <div class="flex items-center justify-between">
+                                    <div class="flex items-center space-x-2">
+                                        <span class="text-incogni-silver">⭐⭐⭐⭐⭐</span>
+                                        <span class="text-xs text-gray-400">(31 reviews)</span>
+                                    </div>
+                                    <button
+                                        class="bg-incogni-white text-incogni-black px-4 py-1 rounded-full text-sm font-semibold hover:bg-incogni-silver transition-colors">
+                                        Buy Now
+                                    </button>
+                                </div>
+                            </div>
+
+                            <div class="bg-white/10 rounded-xl p-4">
+                                <div class="flex items-center mb-3">
+                                    <div
+                                        class="w-12 h-12 bg-incogni-red rounded-full flex items-center justify-center mr-4">
+                                        <span class="text-incogni-black font-bold">SS</span>
+                                    </div>
+                                    <div>
+                                        <h3 class="font-semibold text-incogni-white">Sumit Sawankar</h3>
+                                        <p class="text-xs text-gray-400">Founder & CEO • INCOGNITECH</p>
+                                    </div>
+                                </div>
+                                <p class="text-sm text-gray-300 mb-3">Building the future of student collaboration and
+                                    innovation.</p>
+                                <div class="flex items-center justify-between">
+                                    <span class="text-xs text-gray-400">Contact: +91 8767101084</span>
+                                    <a href="tel:+918767101084"
+                                        class="bg-incogni-white text-incogni-black px-4 py-1 rounded-full text-sm font-semibold hover:bg-incogni-silver transition-colors">
+                                        Call Now
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="text-center">
+                    <button onclick="showPage('home')"
+                        class="bg-white/10 border border-incogni-white text-incogni-white px-8 py-3 rounded-full font-semibold hover:bg-incogni-white hover:text-incogni-black transition-colors">
+                        ← Back to Home
+                    </button>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- PROJECT COLLABORATION PAGE -->
+    <div id="collaboration" class="page">
+        <section class="min-h-screen pt-20 pb-12">
+            <div class="max-w-7xl mx-auto px-4">
+                <div class="text-center mb-12">
+                    <h1 class="text-5xl md:text-7xl font-black text-incogni-white mb-4 glow-text"><svg
+                            class="w-10 h-10 mb-4 text-incogni-white" fill="none" stroke="currentColor"
+                            viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z">
+                            </path>
+                        </svg> Project
+                        Collaboration</h1>
+                    <p class="text-xl text-gray-300 max-w-3xl mx-auto">Find the perfect teammates and bring your ideas
+                        to life</p>
+                </div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-12">
+                    <!-- Create Project -->
+                    <div class="bg-white/5 backdrop-blur-sm border border-incogni-white/20 rounded-3xl p-6">
+                        <h2 class="text-xl font-bold text-incogni-white mb-4"><svg
+                                class="w-10 h-10 mb-4 text-incogni-white" fill="none" stroke="currentColor"
+                                viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M13 10V3L4 14h7v8l9-11h-7z"></path>
+                            </svg> Create Project</h2>
+                        <form class="space-y-4" onsubmit="handlePitchSubmission(event)">
+                            <input type="text" placeholder="Project Title"
+                                class="w-full px-4 py-2 bg-white/10 border border-incogni-white/30 rounded-lg text-white placeholder-gray-400 focus:border-incogni-white focus:outline-none">
+                            <textarea placeholder="Project Description..." rows="3"
+                                class="w-full px-4 py-2 bg-white/10 border border-incogni-white/30 rounded-lg text-white placeholder-gray-400 focus:border-incogni-white focus:outline-none"></textarea>
+                            <input type="text" placeholder="Skills Needed (e.g., React, Python)"
+                                class="w-full px-4 py-2 bg-white/10 border border-incogni-white/30 rounded-lg text-white placeholder-gray-400 focus:border-incogni-white focus:outline-none">
+                            <button type="submit"
+                                class="w-full bg-incogni-white text-incogni-black py-2 rounded-full font-semibold hover:bg-incogni-silver transition-colors">
+                                Create Project
+                            </button>
+                        </form>
+                    </div>
+
+                    <!-- Active Projects -->
+                    <div
+                        class="lg:col-span-2 bg-white/5 backdrop-blur-sm border border-incogni-white/20 rounded-3xl p-6">
+                        <h2 class="text-xl font-bold text-incogni-white mb-4">📋 Active Projects</h2>
+                        <div class="space-y-4">
+                            <div class="bg-white/10 rounded-xl p-4">
+                                <div class="flex items-center justify-between mb-2">
+                                    <h3 class="font-semibold text-incogni-white">Mobile App for Student Services</h3>
+                                    <span class="text-xs bg-green-500 text-white px-2 py-1 rounded">Active</span>
+                                </div>
+                                <p class="text-sm text-gray-300 mb-3">Building a comprehensive app for campus services
+                                    including dining, events, and study spaces.</p>
+                                <div class="flex items-center justify-between">
+                                    <div class="text-xs text-gray-400">
+                                        Looking for: <span class="text-incogni-white">UI/UX Designer, Backend
+                                            Developer</span>
+                                    </div>
+                                    <button
+                                        class="bg-incogni-white text-incogni-black px-4 py-1 rounded-full text-sm font-semibold hover:bg-incogni-silver transition-colors">
+                                        Join Team
+                                    </button>
+                                </div>
+                            </div>
+
+                            <div class="bg-white/10 rounded-xl p-4">
+                                <div class="flex items-center justify-between mb-2">
+                                    <h3 class="font-semibold text-incogni-white">AI Research Paper on Machine Learning
+                                    </h3>
+                                    <span class="text-xs bg-blue-500 text-white px-2 py-1 rounded">Recruiting</span>
+                                </div>
+                                <p class="text-sm text-gray-300 mb-3">Research project exploring new applications of ML
+                                    in educational technology.</p>
+                                <div class="flex items-center justify-between">
+                                    <div class="text-xs text-gray-400">
+                                        Looking for: <span class="text-incogni-white">Data Scientist, Technical
+                                            Writer</span>
+                                    </div>
+                                    <button
+                                        class="bg-incogni-white text-incogni-black px-4 py-1 rounded-full text-sm font-semibold hover:bg-incogni-silver transition-colors">
+                                        Join Team
+                                    </button>
+                                </div>
+                            </div>
+
+                            <div class="bg-white/10 rounded-xl p-4">
+                                <div class="flex items-center justify-between mb-2">
+                                    <h3 class="font-semibold text-incogni-white">Sustainable Campus Initiative</h3>
+                                    <span class="text-xs bg-purple-500 text-white px-2 py-1 rounded">Planning</span>
+                                </div>
+                                <p class="text-sm text-gray-300 mb-3">Developing solutions for reducing campus carbon
+                                    footprint and promoting sustainability.</p>
+                                <div class="flex items-center justify-between">
+                                    <div class="text-xs text-gray-400">
+                                        Looking for: <span class="text-incogni-white">Environmental Science,
+                                            Marketing</span>
+                                    </div>
+                                    <button
+                                        class="bg-incogni-white text-incogni-black px-4 py-1 rounded-full text-sm font-semibold hover:bg-incogni-silver transition-colors">
+                                        Join Team
+                                    </button>
+                                </div>
+                            </div>
+
+                            <div class="bg-white/10 rounded-xl p-4">
+                                <div class="flex items-center mb-3">
+                                    <div
+                                        class="w-12 h-12 bg-incogni-red rounded-full flex items-center justify-center mr-4">
+                                        <span class="text-incogni-black font-bold">SS</span>
+                                    </div>
+                                    <div>
+                                        <h3 class="font-semibold text-incogni-white">Sumit Sawankar</h3>
+                                        <p class="text-xs text-gray-400">Founder & CEO • INCOGNITECH</p>
+                                    </div>
+                                </div>
+                                <p class="text-sm text-gray-300 mb-3">Building the future of student collaboration and
+                                    innovation.</p>
+                                <div class="flex items-center justify-between">
+                                    <span class="text-xs text-gray-400">Contact: +91 8767101084</span>
+                                    <a href="tel:+918767101084"
+                                        class="bg-incogni-white text-incogni-black px-4 py-1 rounded-full text-sm font-semibold hover:bg-incogni-silver transition-colors">
+                                        Call Now
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="text-center">
+                    <button onclick="showPage('home')"
+                        class="bg-white/10 border border-incogni-white text-incogni-white px-8 py-3 rounded-full font-semibold hover:bg-incogni-white hover:text-incogni-black transition-colors">
+                        ← Back to Home
+                    </button>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- STARTUP & VC CONNECT PAGE -->
+    <div id="startup" class="page">
+        <section class="min-h-screen pt-20 pb-12">
+            <div class="max-w-7xl mx-auto px-4">
+                <div class="text-center mb-12">
+                    <h1 class="text-5xl md:text-7xl font-black text-incogni-white mb-4"><svg
+                            class="w-10 h-10 mb-4 text-incogni-white" fill="none" stroke="currentColor"
+                            viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M13 10V3L4 14h7v8l9-11h-7z"></path>
+                        </svg> Startup & VC Connect</h1>
+                    <p class="text-xl text-gray-300 max-w-3xl mx-auto">Turn your innovative ideas into funded startups
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-12">
+                    <!-- Pitch Submission -->
+                    <div class="bg-white/5 backdrop-blur-sm border border-incogni-white/20 rounded-3xl p-8">
+                        <h2 class="text-2xl font-bold text-incogni-white mb-6">💡 Submit Your Pitch</h2>
+                        <form class="space-y-4" onsubmit="handlePitchSubmission(event)">
+                            <div>
+                                <label class="block text-sm font-medium text-gray-300 mb-2">Startup Name</label>
+                                <input type="text" placeholder="Your Startup Name"
+                                    class="w-full px-4 py-3 bg-white/10 border border-incogni-white/30 rounded-lg text-white placeholder-gray-400 focus:border-incogni-white focus:outline-none">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-gray-300 mb-2">Industry</label>
+                                <select id="industry-select"
+                                    class="w-full px-4 py-3 bg-white/10 border border-incogni-white/30 rounded-lg text-white focus:border-incogni-white focus:outline-none"
+                                    style="background-color: #1a1a1a !important; color: #FFD300 !important;">
+                                    <option value="" style="background-color: #1a1a1a; color: #FFD300;">Select Industry
+                                    </option>
+                                    <option value="technology" style="background-color: #1a1a1a; color: #FFD300;">
+                                        Technology</option>
+                                    <option value="healthcare" style="background-color: #1a1a1a; color: #FFD300;">
+                                        Healthcare</option>
+                                    <option value="education" style="background-color: #1a1a1a; color: #FFD300;">
+                                        Education</option>
+                                    <option value="fintech" style="background-color: #1a1a1a; color: #FFD300;">FinTech
+                                    </option>
+                                    <option value="ecommerce" style="background-color: #1a1a1a; color: #FFD300;">
+                                        E-commerce</option>
+                                    <option value="sustainability" style="background-color: #1a1a1a; color: #FFD300;">
+                                        Sustainability</option>
+                                    <option value="food" style="background-color: #1a1a1a; color: #FFD300;">Food &
+                                        Beverage</option>
+                                    <option value="gaming" style="background-color: #1a1a1a; color: #FFD300;">Gaming
+                                    </option>
+                                    <option value="social" style="background-color: #1a1a1a; color: #FFD300;">Social
+                                        Media</option>
+                                    <option value="ai" style="background-color: #1a1a1a; color: #FFD300;">Artificial
+                                        Intelligence</option>
+                                    <option value="blockchain" style="background-color: #1a1a1a; color: #FFD300;">
+                                        Blockchain</option>
+                                    <option value="iot" style="background-color: #1a1a1a; color: #FFD300;">Internet of
+                                        Things</option>
+                                    <option value="other" style="background-color: #1a1a1a; color: #FFD300;">Other
+                                    </option>
+                                </select>
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-gray-300 mb-2">Funding Needed</label>
+                                <input type="text" placeholder="e.g., ₹50,000"
+                                    class="w-full px-4 py-3 bg-white/10 border border-incogni-white/30 rounded-lg text-white placeholder-gray-400 focus:border-incogni-white focus:outline-none">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-gray-300 mb-2">Pitch Description</label>
+                                <textarea
+                                    placeholder="Describe your startup idea, market opportunity, and business model..."
+                                    rows="4"
+                                    class="w-full px-4 py-3 bg-white/10 border border-incogni-white/30 rounded-lg text-white placeholder-gray-400 focus:border-incogni-white focus:outline-none"></textarea>
+                            </div>
+                            <button type="submit"
+                                class="w-full bg-incogni-white text-incogni-black py-3 rounded-full font-bold hover:bg-incogni-silver transition-colors">
+                                Submit Pitch
+                            </button>
+                        </form>
+                    </div>
+
+                    <!-- Investor Network -->
+                    <div class="bg-white/5 backdrop-blur-sm border border-incogni-white/20 rounded-3xl p-8">
+                        <h2 class="text-2xl font-bold text-incogni-white mb-6">💼 Investor Network</h2>
+                        <div class="space-y-4">
+                            <div class="bg-white/10 rounded-xl p-4">
+                                <div class="flex items-center mb-3">
+                                    <div
+                                        class="w-12 h-12 bg-incogni-red rounded-full flex items-center justify-center mr-4">
+                                        <span class="text-incogni-black font-bold">VT</span>
+                                    </div>
+                                    <div>
+                                        <h3 class="font-semibold text-incogni-white">Vedant Thakare</h3>
+                                        <p class="text-xs text-gray-400">Early Stage • Tech Focus</p>
+                                    </div>
+                                </div>
+                                <p class="text-sm text-gray-300 mb-3">Investing in innovative tech startups with strong
+                                    student founder teams.</p>
+                                <div class="flex items-center justify-between">
+                                    <span class="text-xs text-gray-400">Investment Range: ₹50K - ₹100K</span>
+                                    <button onclick="showVCDetails('vedant')"
+                                        class="bg-incogni-white text-incogni-black px-4 py-1 rounded-full text-sm font-semibold hover:bg-incogni-silver transition-colors">
+                                        Connect
+                                    </button>
+                                </div>
+                            </div>
+
+                            <div class="bg-white/10 rounded-xl p-4">
+                                <div class="flex items-center mb-3">
+                                    <div
+                                        class="w-12 h-12 bg-incogni-red rounded-full flex items-center justify-center mr-4">
+                                        <span class="text-incogni-black font-bold">TK</span>
+                                    </div>
+                                    <div>
+                                        <h3 class="font-semibold text-incogni-white">Tejas Kadu</h3>
+                                        <p class="text-xs text-gray-400">Seed Stage • Education Focus</p>
+                                    </div>
+                                </div>
+                                <p class="text-sm text-gray-300 mb-3">Specialized in educational technology and
+                                    student-led initiatives.</p>
+                                <div class="flex items-center justify-between">
+                                    <span class="text-xs text-gray-400">Investment Range: ₹100K - ₹150K</span>
+                                    <button onclick="showVCDetails('tejas')"
+                                        class="bg-incogni-white text-incogni-black px-4 py-1 rounded-full text-sm font-semibold hover:bg-incogni-silver transition-colors">
+                                        Connect
+                                    </button>
+                                </div>
+                            </div>
+
+                            <div class="bg-white/10 rounded-xl p-4">
+                                <div class="flex items-center mb-3">
+                                    <div
+                                        class="w-12 h-12 bg-incogni-red rounded-full flex items-center justify-center mr-4">
+                                        <span class="text-incogni-black font-bold">LJ</span>
+                                    </div>
+                                    <div>
+                                        <h3 class="font-semibold text-incogni-white">Lalit Jambhulkar</h3>
+                                        <p class="text-xs text-gray-400">Pre-Seed • All Industries</p>
+                                    </div>
+                                </div>
+                                <p class="text-sm text-gray-300 mb-3">Angel investor supporting student entrepreneurs
+                                    across all sectors.</p>
+                                <div class="flex items-center justify-between">
+                                    <span class="text-xs text-gray-400">Investment Range: ₹150K - ₹200K</span>
+                                    <button onclick="showVCDetails('lalit')"
+                                        class="bg-incogni-white text-incogni-black px-4 py-1 rounded-full text-sm font-semibold hover:bg-incogni-silver transition-colors">
+                                        Connect
+                                    </button>
+                                </div>
+                            </div>
+
+                            <div class="bg-white/10 rounded-xl p-4">
+                                <div class="flex items-center mb-3">
+                                    <div
+                                        class="w-12 h-12 bg-incogni-red rounded-full flex items-center justify-center mr-4">
+                                        <span class="text-incogni-black font-bold">SS</span>
+                                    </div>
+                                    <div>
+                                        <h3 class="font-semibold text-incogni-white">Sumit Sawankar</h3>
+                                        <p class="text-xs text-gray-400">Founder & CEO • INCOGNITECH</p>
+                                    </div>
+                                </div>
+                                <p class="text-sm text-gray-300 mb-3">Building the future of student collaboration and
+                                    innovation.</p>
+                                <div class="flex items-center justify-between">
+                                    <span class="text-xs text-gray-400">Contact: +91 8767101084</span>
+                                    <a href="tel:+918767101084"
+                                        class="bg-incogni-white text-incogni-black px-4 py-1 rounded-full text-sm font-semibold hover:bg-incogni-silver transition-colors">
+                                        Call Now
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="text-center">
+                    <button onclick="showPage('home')"
+                        class="bg-white/10 border border-incogni-white text-incogni-white px-8 py-3 rounded-full font-semibold hover:bg-incogni-white hover:text-incogni-black transition-colors">
+                        ← Back to Home
+                    </button>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- REAL-TIME CHAT PAGE -->
+    <div id="chat" class="page">
+        <section class="min-h-screen pt-20 pb-12">
+            <div class="max-w-7xl mx-auto px-4">
+                <div class="text-center mb-8">
+                    <h1 class="text-5xl md:text-7xl font-black text-incogni-white mb-4 glow-text"><svg
+                            class="w-10 h-10 mb-4 text-incogni-white" fill="none" stroke="currentColor"
+                            viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z">
+                            </path>
+                        </svg> Real-time Chat
+                    </h1>
+                    <p class="text-xl text-gray-300 max-w-3xl mx-auto">Stay connected with your team 24/7</p>
+                </div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-4 gap-6 h-96">
+                    <!-- Channels Sidebar -->
+                    <div class="bg-white/5 backdrop-blur-sm border border-incogni-white/20 rounded-2xl p-4">
+                        <h2 class="text-lg font-bold text-incogni-white mb-4">Channels</h2>
+                        <div class="space-y-2">
+                            <div class="channel-item bg-incogni-white/20 text-incogni-white px-3 py-2 rounded-lg cursor-pointer"
+                                onclick="switchChannel('general')">
+                                # general
+                            </div>
+                            <div class="channel-item text-gray-300 hover:bg-white/10 px-3 py-2 rounded-lg cursor-pointer"
+                                onclick="switchChannel('cs-engineering')">
+                                # cs-engineering
+                            </div>
+                            <div class="channel-item text-gray-300 hover:bg-white/10 px-3 py-2 rounded-lg cursor-pointer"
+                                onclick="switchChannel('study-groups')">
+                                # study-groups
+                            </div>
+                            <div class="channel-item text-gray-300 hover:bg-white/10 px-3 py-2 rounded-lg cursor-pointer"
+                                onclick="switchChannel('startup-ideas')">
+                                # startup-ideas
+                            </div>
+                            <div class="channel-item text-gray-300 hover:bg-white/10 px-3 py-2 rounded-lg cursor-pointer"
+                                onclick="switchChannel('placement-prep')">
+                                # placement-prep
+                            </div>
+                            <div class="channel-item text-gray-300 hover:bg-white/10 px-3 py-2 rounded-lg cursor-pointer"
+                                onclick="switchChannel('coding-help')">
+                                # coding-help
+                            </div>
+                            <div class="channel-item text-gray-300 hover:bg-white/10 px-3 py-2 rounded-lg cursor-pointer"
+                                onclick="switchChannel('internship-alerts')">
+                                # internship-alerts
+                            </div>
+                        </div>
+                        <h3 class="text-sm font-semibold text-gray-400 mt-6 mb-2">Direct Messages</h3>
+                        <div class="space-y-1">
+                            <div class="text-gray-300 hover:bg-white/10 px-3 py-1 rounded cursor-pointer text-sm">
+                                👤 Arjun Sharma
+                            </div>
+                            <div class="text-gray-300 hover:bg-white/10 px-3 py-1 rounded cursor-pointer text-sm">
+                                👤 Priya Patel
+                            </div>
+                            <div class="text-gray-300 hover:bg-white/10 px-3 py-1 rounded cursor-pointer text-sm">
+                                👤 Rohit Gupta
+                            </div>
+                            <div class="text-gray-300 hover:bg-white/10 px-3 py-1 rounded cursor-pointer text-sm">
+                                👤 Sneha Reddy
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Chat Area -->
+                    <div
+                        class="lg:col-span-3 bg-white/5 backdrop-blur-sm border border-incogni-white/20 rounded-2xl flex flex-col">
+                        <!-- Chat Header -->
+                        <div class="border-b border-incogni-white/20 p-4">
+                            <h3 class="text-lg font-semibold text-incogni-white"># general</h3>
+                            <p class="text-sm text-gray-400">General discussion for all members</p>
+                        </div>
+
+                        <!-- Messages -->
+                        <div class="flex-1 p-4 space-y-4 overflow-y-auto">
+                            <div class="flex items-start space-x-3">
+                                <div class="w-8 h-8 bg-incogni-red rounded-full flex items-center justify-center">
+                                    <span class="text-incogni-black text-sm font-bold">A</span>
+                                </div>
+                                <div>
+                                    <div class="flex items-center space-x-2 mb-1">
+                                        <span class="text-incogni-white font-semibold text-sm">Arjun Sharma</span>
+                                        <span class="text-gray-400 text-xs">2:30 PM</span>
+                                    </div>
+                                    <p class="text-gray-300 text-sm">Hey everyone! Just uploaded my CS101 Data
+                                        Structures notes to the marketplace. Complete with examples and practice
+                                        problems! 💻</p>
+                                </div>
+                            </div>
+
+                            <div class="flex items-start space-x-3">
+                                <div class="w-8 h-8 bg-blue-500 rounded-full flex items-center justify-center">
+                                    <span class="text-white text-sm font-bold">P</span>
+                                </div>
+                                <div>
+                                    <div class="flex items-center space-x-2 mb-1">
+                                        <span class="text-blue-400 font-semibold text-sm">Priya Patel</span>
+                                        <span class="text-gray-400 text-xs">2:32 PM</span>
+                                    </div>
+                                    <p class="text-gray-300 text-sm">Thanks Arjun bhai! I was desperately looking
+                                        for
+                                        good data structures notes. Just purchased them <svg
+                                            class="w-10 h-10 mb-4 text-incogni-white" fill="none" stroke="currentColor"
+                                            viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253">
+                                            </path>
+                                        </svg> Your algorithms explanations
+                                        are always the best!</p>
+                                </div>
+                            </div>
+
+                            <div class="flex items-start space-x-3">
+                                <div class="w-8 h-8 bg-green-500 rounded-full flex items-center justify-center">
+                                    <span class="text-white text-sm font-bold">R</span>
+                                </div>
+                                <div>
+                                    <div class="flex items-center space-x-2 mb-1">
+                                        <span class="text-green-400 font-semibold text-sm">Rohit Gupta</span>
+                                        <span class="text-gray-400 text-xs">2:35 PM</span>
+                                    </div>
+                                    <p class="text-gray-300 text-sm">Anyone interested in collaborating on a mobile app
+                                        project for local businesses? I need a UI/UX designer and someone good with
+                                        React Native! <svg class="w-10 h-10 mb-4 text-incogni-white" fill="none"
+                                            stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                d="M13 10V3L4 14h7v8l9-11h-7z"></path>
+                                        </svg></p>
+                                </div>
+                            </div>
+
+                            <div class="flex items-start space-x-3">
+                                <div class="w-8 h-8 bg-purple-500 rounded-full flex items-center justify-center">
+                                    <span class="text-white text-sm font-bold">S</span>
+                                </div>
+                                <div>
+                                    <div class="flex items-center space-x-2 mb-1">
+                                        <span class="text-purple-400 font-semibold text-sm">Sneha Reddy</span>
+                                        <span class="text-gray-400 text-xs">2:38 PM</span>
+                                    </div>
+                                    <p class="text-gray-300 text-sm">@Rohit I'm interested! I have experience with UI/UX
+                                        design and Figma. Can we discuss this in DM? Also, does anyone have good notes
+                                        for Database Management Systems? 🎨</p>
+                                </div>
+                            </div>
+
+                            <div class="flex items-start space-x-3">
+                                <div class="w-8 h-8 bg-orange-500 rounded-full flex items-center justify-center">
+                                    <span class="text-white text-sm font-bold">V</span>
+                                </div>
+                                <div>
+                                    <div class="flex items-center space-x-2 mb-1">
+                                        <span class="text-orange-400 font-semibold text-sm">Vikram Singh</span>
+                                        <span class="text-gray-400 text-xs">2:40 PM</span>
+                                    </div>
+                                    <p class="text-gray-300 text-sm">@Sneha I have comprehensive DBMS notes with SQL
+                                        queries and normalization examples. Will upload them tonight! Also working on a
+                                        fintech startup idea - anyone interested in joining? 💡</p>
+                                </div>
+                            </div>
+
+                            <div class="flex items-start space-x-3">
+                                <div class="w-8 h-8 bg-pink-500 rounded-full flex items-center justify-center">
+                                    <span class="text-white text-sm font-bold">A</span>
+                                </div>
+                                <div>
+                                    <div class="flex items-center space-x-2 mb-1">
+                                        <span class="text-pink-400 font-semibold text-sm">Ananya Joshi</span>
+                                        <span class="text-gray-400 text-xs">2:42 PM</span>
+                                    </div>
+                                    <p class="text-gray-300 text-sm">This platform is amazing! Already made ₹2000 from
+                                        selling my Machine Learning notes. @Vikram count me in for the fintech idea - I
+                                        have experience with Python and data analysis 📊</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Message Input -->
+                        <div class="border-t border-incogni-white/20 p-4">
+                            <div class="flex space-x-2">
+                                <input type="text" placeholder="Type your message..."
+                                    class="flex-1 px-4 py-2 bg-white/10 border border-incogni-white/30 rounded-lg text-white placeholder-gray-400 focus:border-incogni-white focus:outline-none">
+                                <button
+                                    class="bg-incogni-white text-incogni-black px-6 py-2 rounded-lg font-semibold hover:bg-incogni-silver transition-colors">
+                                    Send
+                                </button>
+                            </div>
+
+                            <div class="bg-white/10 rounded-xl p-4">
+                                <div class="flex items-center mb-3">
+                                    <div
+                                        class="w-12 h-12 bg-incogni-red rounded-full flex items-center justify-center mr-4">
+                                        <span class="text-incogni-black font-bold">SS</span>
+                                    </div>
+                                    <div>
+                                        <h3 class="font-semibold text-incogni-white">Sumit Sawankar</h3>
+                                        <p class="text-xs text-gray-400">Founder & CEO • INCOGNITECH</p>
+                                    </div>
+                                </div>
+                                <p class="text-sm text-gray-300 mb-3">Building the future of student collaboration and
+                                    innovation.</p>
+                                <div class="flex items-center justify-between">
+                                    <span class="text-xs text-gray-400">Contact: +91 8767101084</span>
+                                    <a href="tel:+918767101084"
+                                        class="bg-incogni-white text-incogni-black px-4 py-1 rounded-full text-sm font-semibold hover:bg-incogni-silver transition-colors">
+                                        Call Now
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="text-center mt-8">
+                    <button onclick="showPage('home')"
+                        class="bg-white/10 border border-incogni-white text-incogni-white px-8 py-3 rounded-full font-semibold hover:bg-incogni-white hover:text-incogni-black transition-colors">
+                        ← Back to Home
+                    </button>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- FEATURES PAGE -->
+    <div id="features" class="page">
+        <section class="min-h-screen pt-20 pb-12">
+            <div class="max-w-7xl mx-auto px-4">
+                <div class="text-center mb-12">
+                    <h1 class="text-5xl md:text-7xl font-black text-incogni-white mb-4 glow-text">Platform Features
+                    </h1>
+                    <p class="text-xl text-gray-300 max-w-3xl mx-auto">Explore all the amazing features that make
+                        INCOGNITECH special</p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
+                    <div class="bg-white/5 backdrop-blur-sm border border-incogni-white/20 rounded-3xl p-8 feature-card"
+                        onclick="showPage('notes')">
+                        <div class="text-6xl mb-6 text-center feature-icon"><svg
+                                class="w-10 h-10 mb-4 text-incogni-white" fill="none" stroke="currentColor"
+                                viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253">
+                                </path>
+                            </svg></div>
+                        <h3 class="text-2xl font-bold text-incogni-white mb-4">Notes Marketplace</h3>
+                        <p class="text-gray-300 mb-6">Transform your study notes into income while helping fellow
+                            students succeed. Upload, sell, and buy high-quality class notes from verified students.</p>
+                        <ul class="space-y-2 text-gray-300 mb-6">
+                            <li class="flex items-center"><span class="text-incogni-white mr-3">✓</span> Instant upload
+                                and verification</li>
+                            <li class="flex items-center"><span class="text-incogni-white mr-3">✓</span> Secure payment
+                                processing</li>
+                            <li class="flex items-center"><span class="text-incogni-white mr-3">✓</span> Quality rating
+                                system</li>
+                        </ul>
+                        <button
+                            class="w-full bg-incogni-white text-incogni-black py-3 rounded-full font-bold hover:bg-incogni-silver transition-colors">
+                            Explore Marketplace →
+                        </button>
+                    </div>
+
+                    <div class="bg-white/5 backdrop-blur-sm border border-incogni-white/20 rounded-3xl p-8 feature-card"
+                        onclick="showPage('collaboration')">
+                        <div class="text-6xl mb-6 text-center feature-icon"><svg
+                                class="w-10 h-10 mb-4 text-incogni-white" fill="none" stroke="currentColor"
+                                viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z">
+                                </path>
+                            </svg></div>
+                        <h3 class="text-2xl font-bold text-incogni-white mb-4">Project Collaboration</h3>
+                        <p class="text-gray-300 mb-6">Find the perfect teammates for your projects. Connect with
+                            students who have complementary skills and bring your ideas to life together.</p>
+                        <ul class="space-y-2 text-gray-300 mb-6">
+                            <li class="flex items-center"><span class="text-incogni-white mr-3">✓</span> Skill-based
+                                matching</li>
+                            <li class="flex items-center"><span class="text-incogni-white mr-3">✓</span> Project
+                                management tools</li>
+                            <li class="flex items-center"><span class="text-incogni-white mr-3">✓</span> Portfolio
+                                building</li>
+                        </ul>
+                        <button
+                            class="w-full bg-incogni-white text-incogni-black py-3 rounded-full font-bold hover:bg-incogni-silver transition-colors">
+                            Start Collaborating →
+                        </button>
+                    </div>
+
+                    <div class="bg-white/5 backdrop-blur-sm border border-incogni-white/20 rounded-3xl p-8 feature-card"
+                        onclick="showPage('startup')">
+                        <div class="text-6xl mb-6 text-center feature-icon"><svg
+                                class="w-10 h-10 mb-4 text-incogni-white" fill="none" stroke="currentColor"
+                                viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M13 10V3L4 14h7v8l9-11h-7z"></path>
+                            </svg></div>
+                        <h3 class="text-2xl font-bold text-incogni-white mb-4">Startup & VC Connect</h3>
+                        <p class="text-gray-300 mb-6">Turn your innovative ideas into funded startups. Pitch your
+                            concepts to investors and connect with venture capitalists looking for the next big thing.
+                        </p>
+                        <ul class="space-y-2 text-gray-300 mb-6">
+                            <li class="flex items-center"><span class="text-incogni-white mr-3">✓</span> Investor
+                                networking</li>
+                            <li class="flex items-center"><span class="text-incogni-white mr-3">✓</span> Pitch deck
+                                tools</li>
+                            <li class="flex items-center"><span class="text-incogni-white mr-3">✓</span> Funding
+                                opportunities</li>
+                        </ul>
+                        <button
+                            class="w-full bg-incogni-white text-incogni-black py-3 rounded-full font-bold hover:bg-incogni-silver transition-colors">
+                            Connect with VCs →
+                        </button>
+                    </div>
+
+                    <div class="bg-white/5 backdrop-blur-sm border border-incogni-white/20 rounded-3xl p-8 feature-card"
+                        onclick="showPage('chat')">
+                        <div class="text-6xl mb-6 text-center feature-icon"><svg
+                                class="w-10 h-10 mb-4 text-incogni-white" fill="none" stroke="currentColor"
+                                viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z">
+                                </path>
+                            </svg></div>
+                        <h3 class="text-2xl font-bold text-incogni-white mb-4">Real-time Chat</h3>
+                        <p class="text-gray-300 mb-6">Stay connected with your team 24/7. Our real-time chat system
+                            keeps your collaborations flowing smoothly, no matter where you are.</p>
+                        <ul class="space-y-2 text-gray-300 mb-6">
+                            <li class="flex items-center"><span class="text-incogni-white mr-3">✓</span> Instant
+                                messaging</li>
+                            <li class="flex items-center"><span class="text-incogni-white mr-3">✓</span> File sharing
+                            </li>
+                            <li class="flex items-center"><span class="text-incogni-white mr-3">✓</span> Group channels
+                            </li>
+                        </ul>
+                        <button
+                            class="w-full bg-incogni-white text-incogni-black py-3 rounded-full font-bold hover:bg-incogni-silver transition-colors">
+                            Start Chatting →
+                        </button>
+                    </div>
+                </div>
+
+                <div class="text-center">
+                    <button onclick="showPage('home')"
+                        class="bg-white/10 border border-incogni-white text-incogni-white px-8 py-3 rounded-full font-semibold hover:bg-incogni-white hover:text-incogni-black transition-colors">
+                        ← Back to Home
+                    </button>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- MISSION PAGE -->
+    <div id="mission" class="page">
+        <section class="min-h-screen pt-20 pb-12">
+            <div class="gradient-bg">
+                <div class="max-w-6xl mx-auto px-4 text-center py-20">
+                    <h1 class="text-4xl md:text-6xl font-black text-incogni-black mb-8">Our Mission</h1>
+                    <p
+                        class="text-xl md:text-2xl text-incogni-black font-medium max-w-4xl mx-auto leading-relaxed mb-12">
+                        Empower students to share knowledge, skills, and opportunities in one unified platform.
+                        We believe in the power of student collaboration to drive innovation and success.
+                    </p>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                        <div class="bg-incogni-black/10 backdrop-blur-sm rounded-2xl p-8">
+                            <div class="text-5xl mb-4">⚡</div>
+                            <h3 class="text-2xl font-bold text-incogni-black mb-4">Energy</h3>
+                            <p class="text-incogni-black">Fueling creativity and innovation through dynamic
+                                collaboration</p>
+                        </div>
+                        <div class="bg-incogni-black/10 backdrop-blur-sm rounded-2xl p-8">
+                            <div class="text-5xl mb-4">🎯</div>
+                            <h3 class="text-2xl font-bold text-incogni-black mb-4">Focus</h3>
+                            <p class="text-incogni-black">Laser-focused on student success and meaningful connections
+                            </p>
+                        </div>
+                        <div class="bg-incogni-black/10 backdrop-blur-sm rounded-2xl p-8">
+                            <div class="text-5xl mb-4">🌟</div>
+                            <h3 class="text-2xl font-bold text-incogni-black mb-4">Excellence</h3>
+                            <p class="text-incogni-black">Delivering exceptional experiences for the student community
+                            </p>
+                        </div>
+                    </div>
+                    <div class="mt-12">
+                        <button onclick="showPage('home')"
+                            class="bg-incogni-black text-incogni-white px-8 py-3 rounded-full font-semibold hover:bg-gray-900 transition-colors">
+                            ← Back to Home
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- VC DETAILS PAGE -->
+    <div id="vc-details" class="page">
+        <section class="min-h-screen pt-20 pb-12">
+            <div class="max-w-4xl mx-auto px-4">
+                <div class="text-center mb-8">
+                    <h1 class="text-4xl md:text-6xl font-black text-incogni-white mb-4">VC Contact Details</h1>
+                    <p class="text-xl text-gray-300">Connect directly with our investors</p>
+                </div>
+
+                <div id="vc-info"
+                    class="bg-white/5 backdrop-blur-sm border border-incogni-white/20 rounded-3xl p-8 mb-8">
+                    <!-- VC details will be populated by JavaScript -->
+                </div>
+
+                <div class="text-center">
+                    <button onclick="showPage('startup')"
+                        class="bg-white/10 border border-incogni-white text-incogni-white px-8 py-3 rounded-full font-semibold hover:bg-incogni-white hover:text-incogni-black transition-colors mr-4">
+                        ← Back to Startup Page
+                    </button>
+                    <button onclick="showPage('home')"
+                        class="bg-incogni-white text-incogni-black px-8 py-3 rounded-full font-semibold hover:bg-incogni-silver transition-colors">
+                        Home
+                    </button>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- ABOUT PAGE -->
+    <div id="about" class="page">
+        <section class="min-h-screen pt-20 pb-12">
+            <div class="max-w-6xl mx-auto px-4 text-center">
+                <h1 class="text-4xl md:text-6xl font-black text-incogni-white mb-12 glow-text">About Me</h1>
+                <div class="max-w-4xl mx-auto">
+                    <div class="bg-white/5 backdrop-blur-sm border border-incogni-white/20 rounded-3xl p-8 mb-8">
+                        <div
+                            class="w-40 h-40 bg-gradient-to-br from-incogni-white to-incogni-silver rounded-full mx-auto mb-6 flex items-center justify-center">
+                            <img src="profile.png" alt="Sumit Sawankar" class="w-full h-full object-cover">
+                        </div>
+                        <h3 class="text-2xl font-bold text-incogni-white mb-4">Sumit Sawankar - Student Developer &
+                            Innovator</h3>
+                        <p class="text-lg text-gray-300 mb-6 leading-relaxed">
+                            Hi! I'm Sumit Sawankar, a passionate student developer who believes in the power of
+                            collaboration and knowledge sharing.
+                            INCOGNITECH was born from my own experiences struggling to find study materials, project
+                            partners, and
+                            opportunities to connect with like-minded students.
+                        </p>
+                        <p class="text-lg text-gray-300 mb-6 leading-relaxed">
+                            As an Information Technology student pursuing B.Tech, I've experienced firsthand the
+                            challenges of academic life - from finding
+                            quality study notes to connecting with peers for group projects. That's why I created this
+                            platform to
+                            bridge these gaps and empower students worldwide.
+                        </p>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+                        <div
+                            class="bg-white/5 backdrop-blur-sm border border-incogni-white/20 rounded-2xl p-6 hover-lift">
+                            <div class="text-3xl mb-4">🎓</div>
+                            <h4 class="text-incogni-white font-semibold mb-2">Education</h4>
+                            <p class="text-sm text-gray-300">B.Tech Information Technology Student passionate about
+                                creating solutions for student communities</p>
+                        </div>
+                        <div
+                            class="bg-white/5 backdrop-blur-sm border border-incogni-white/20 rounded-2xl p-6 hover-lift">
+                            <div class="text-3xl mb-4">💡</div>
+                            <h4 class="text-incogni-white font-semibold mb-2">Vision</h4>
+                            <p class="text-sm text-gray-300">To create a unified platform where students can thrive,
+                                collaborate, and succeed together</p>
+                        </div>
+                        <div
+                            class="bg-white/5 backdrop-blur-sm border border-incogni-white/20 rounded-2xl p-6 hover-lift">
+                            <div class="text-3xl mb-4"><svg class="w-10 h-10 mb-4 text-incogni-white" fill="none"
+                                    stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M13 10V3L4 14h7v8l9-11h-7z"></path>
+                                </svg></div>
+                            <h4 class="text-incogni-white font-semibold mb-2">Mission</h4>
+                            <p class="text-sm text-gray-300">Empowering students through technology, collaboration, and
+                                shared knowledge</p>
+                        </div>
+                    </div>
+
+                    <div class="text-center">
+                        <button onclick="showPage('home')"
+                            class="bg-white/10 border border-incogni-white text-incogni-white px-8 py-3 rounded-full font-semibold hover:bg-incogni-white hover:text-incogni-black transition-colors">
+                            ← Back to Home
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+
+
+
+    <script>
+
+        // API Configuration & Auth State
+        const API_BASE_URL = 'http://localhost:8000/api';
+        let currentUser = null;
+        let authMode = 'login'; // 'login' or 'signup'
+
+        // Check if user is logged in on load
+        function checkAuthState() {
+            const token = localStorage.getItem('incogni_token');
+            const userData = localStorage.getItem('incogni_user');
+
+            if (token && userData) {
+                try {
+                    currentUser = JSON.parse(userData);
+                    updateUIForAuth(true);
+                } catch (e) {
+                    console.error('Error parsing user data', e);
+                    handleLogout();
+                }
+            } else {
+                updateUIForAuth(false);
+            }
+        }
+
+        // Utility strictly for authenticated fetch
+        async function fetchWithAuth(endpoint, options = {}) {
+            const token = localStorage.getItem('incogni_token');
+            const headers = {
+                'Content-Type': 'application/json',
+                ...options.headers
+            };
+
+            if (token) {
+                headers['Authorization'] = `Bearer ${token}`;
+            }
+
+            // Remove content-type if data is FormData (browser sets boundary automatically)
+            if (options.body instanceof FormData) {
+                delete headers['Content-Type'];
+            }
+
+            try {
+                const res = await fetch(`${API_BASE_URL}${endpoint}`, {
+                    ...options,
+                    headers
+                });
+
+                const data = await res.json();
+
+                if (!res.ok) {
+                    throw new Error(data.message || 'Something went wrong');
+                }
+
+                return data;
+            } catch (error) {
+                console.error(`API Error (${endpoint}):`, error);
+                throw error;
+            }
+        }
+
+        function updateUIForAuth(isLoggedIn) {
+            const joinBtn = document.getElementById('join-now-btn');
+            const profileBadge = document.getElementById('user-profile-badge');
+
+            if (isLoggedIn && currentUser) {
+                if (joinBtn) joinBtn.classList.add('hidden');
+                if (profileBadge) {
+                    profileBadge.classList.remove('hidden');
+                    profileBadge.classList.add('flex');
+                    document.getElementById('user-name-display').textContent = currentUser.name.split(' ')[0];
+
+                    if (currentUser.avatar) {
+                        document.getElementById('user-initial').classList.add('hidden');
+                        document.getElementById('user-avatar-img').src = currentUser.avatar;
+                        document.getElementById('user-avatar-img').classList.remove('hidden');
+                    } else {
+                        document.getElementById('user-initial').textContent = currentUser.name.charAt(0).toUpperCase();
+                        document.getElementById('user-initial').classList.remove('hidden');
+                        document.getElementById('user-avatar-img').classList.add('hidden');
+                    }
+                }
+            } else {
+                if (joinBtn) joinBtn.classList.remove('hidden');
+                if (profileBadge) {
+                    profileBadge.classList.add('hidden');
+                    profileBadge.classList.remove('flex');
+                }
+            }
+        }
+
+        // --- AUTH MODAL LOGIC ---
+        function showAuthModal() {
+            const modal = document.getElementById('auth-modal');
+            const content = document.getElementById('auth-modal-content');
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+            // Reset form and mode
+            document.getElementById('auth-form').reset();
+            document.getElementById('auth-error').classList.add('hidden');
+            if (authMode !== 'login') toggleAuthMode(); // Reset to login view
+
+            setTimeout(() => {
+                content.style.transform = 'scale(1)';
+            }, 10);
+        }
+
+        function closeAuthModal() {
+            const modal = document.getElementById('auth-modal');
+            const content = document.getElementById('auth-modal-content');
+            content.style.transform = 'scale(0)';
+            setTimeout(() => {
+                modal.classList.add('hidden');
+                modal.classList.remove('flex');
+            }, 300);
+        }
+
+        function toggleAuthMode() {
+            authMode = authMode === 'login' ? 'signup' : 'login';
+            const isSignup = authMode === 'signup';
+
+            document.getElementById('name-group').classList.toggle('hidden', !isSignup);
+            document.getElementById('auth-name').required = isSignup;
+
+            document.getElementById('auth-title').textContent = isSignup ? 'Create Account' : 'Welcome Back';
+            document.getElementById('auth-subtitle').textContent = isSignup ? 'Join the community today' : 'Login to access your account';
+            document.getElementById('auth-submit-btn').textContent = isSignup ? 'Sign Up' : 'Login';
+
+            document.getElementById('auth-switch-text').textContent = isSignup ? 'Already have an account?' : 'Don\'t have an account?';
+            document.getElementById('auth-switch-btn').textContent = isSignup ? 'Login' : 'Sign up';
+            document.getElementById('auth-error').classList.add('hidden');
+        }
+
+        async function handleAuthSubmit(e) {
+            e.preventDefault();
+            const email = document.getElementById('auth-email').value;
+            const password = document.getElementById('auth-password').value;
+            const name = document.getElementById('auth-name').value;
+            const errorDiv = document.getElementById('auth-error');
+            const submitBtn = document.getElementById('auth-submit-btn');
+
+            errorDiv.classList.add('hidden');
+            const originalText = submitBtn.textContent;
+            submitBtn.textContent = 'Processing...';
+            submitBtn.disabled = true;
+
+            const endpoint = authMode === 'login' ? '/auth/login' : '/auth/signup';
+            const payload = authMode === 'login' ? { email, password } : { name, email, password };
+
+            try {
+                const data = await fetchWithAuth(endpoint, {
+                    method: 'POST',
+                    body: JSON.stringify(payload)
+                });
+
+                // Store token and user
+                localStorage.setItem('incogni_token', data.token);
+                localStorage.setItem('incogni_user', JSON.stringify(data));
+                currentUser = data;
+
+                updateUIForAuth(true);
+                closeAuthModal();
+                showSuccessModal('auth_success');
+
+            } catch (err) {
+                errorDiv.textContent = err.message;
+                errorDiv.classList.remove('hidden');
+            } finally {
+                submitBtn.textContent = originalText;
+                submitBtn.disabled = false;
+            }
+        }
+
+        function handleLogout() {
+            localStorage.removeItem('incogni_token');
+            localStorage.removeItem('incogni_user');
+            currentUser = null;
+            updateUIForAuth(false);
+            window.location.reload();
+        }
+
+        // Page navigation system
+        function showPage(pageId) {
+            // Hide all pages
+            const pages = document.querySelectorAll('.page');
+            pages.forEach(page => {
+                page.classList.remove('active');
+            });
+
+            // Show selected page
+            const targetPage = document.getElementById(pageId);
+            if (targetPage) {
+                targetPage.classList.add('active');
+                window.scrollTo(0, 0);
+            }
+        }
+
+        // Create particle system
+        function createParticles() {
+            const particlesContainer = document.getElementById('particles-container');
+            const particleCount = 50;
+
+            for (let i = 0; i < particleCount; i++) {
+                const particle = document.createElement('div');
+                particle.classList.add('particle');
+                particle.style.left = Math.random() * 100 + '%';
+                particle.style.animationDelay = Math.random() * 8 + 's';
+                particle.style.animationDuration = (Math.random() * 3 + 5) + 's';
+                particlesContainer.appendChild(particle);
+            }
+        }
+
+        // Initialize particles on load
+        document.addEventListener('DOMContentLoaded', createParticles);
+
+        // Enhanced scroll effects
+        window.addEventListener('scroll', () => {
+            const nav = document.querySelector('nav');
+            const scrolled = window.scrollY;
+
+            // Navigation background change
+            if (scrolled > 100) {
+                nav.classList.add('bg-incogni-black');
+                nav.classList.remove('bg-incogni-black/90');
+            } else {
+                nav.classList.remove('bg-incogni-black');
+                nav.classList.add('bg-incogni-black/90');
+            }
+
+            // Scroll-triggered animations
+            const fadeElements = document.querySelectorAll('.fade-in-up');
+            fadeElements.forEach(element => {
+                const elementTop = element.getBoundingClientRect().top;
+                const elementVisible = 150;
+
+                if (elementTop < window.innerHeight - elementVisible) {
+                    element.classList.add('visible');
+                }
+            });
+        });
+
+        // Enhanced button interactions
+        function handleGetStarted() {
+            const button = event.target;
+            const originalText = button.textContent;
+
+            // Show loading state
+            button.innerHTML = '<span class="loading-spinner"></span> Processing...';
+            button.disabled = true;
+
+            setTimeout(() => {
+                button.textContent = originalText;
+                button.disabled = false;
+
+                // Show welcome modal
+                showWelcomeModal();
+            }, 2000);
+        }
+
+        function showWelcomeModal() {
+            const modal = document.createElement('div');
+            modal.className = 'fixed inset-0 bg-black/80 flex items-center justify-center z-50 backdrop-blur-sm';
+            modal.innerHTML = `
+                <div class="bg-incogni-black border-2 border-incogni-white rounded-3xl p-8 max-w-md mx-4 text-center transform scale-0 transition-transform duration-300">
+                    <div class="text-6xl mb-4">🎉</div>
+                    <h3 class="text-2xl font-bold text-incogni-white mb-4">Welcome to INCOGNITECH!</h3>
+                    <p class="text-gray-300 mb-6">Your student collaboration journey begins now. Get ready to connect, collaborate, and create amazing things!</p>
+                    <button onclick="closeModal()" class="bg-incogni-white text-incogni-black px-6 py-3 rounded-full font-bold hover:bg-incogni-silver transition-colors">
+                        Let's Go! <svg class="w-10 h-10 mb-4 text-incogni-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v8l9-11h-7z"></path></svg>
+                    </button>
+                </div>
+            `;
+
+            document.body.appendChild(modal);
+
+            // Animate modal in
+            setTimeout(() => {
+                modal.querySelector('div').style.transform = 'scale(1)';
+            }, 100);
+        }
+
+        function closeModal() {
+            const modal = document.querySelector('.fixed.inset-0');
+            if (modal) {
+                modal.querySelector('div').style.transform = 'scale(0)';
+                setTimeout(() => {
+                    modal.remove();
+                    // Automatically redirect to home page after modal closes
+                    showPage('home');
+                }, 300);
+            }
+        }
+
+        // Add ripple effect to all buttons
+        document.addEventListener('click', function (e) {
+            if (e.target.tagName === 'BUTTON') {
+                const button = e.target;
+                const ripple = document.createElement('span');
+                const rect = button.getBoundingClientRect();
+                const size = Math.max(rect.width, rect.height);
+                const x = e.clientX - rect.left - size / 2;
+                const y = e.clientY - rect.top - size / 2;
+
+                ripple.style.width = ripple.style.height = size + 'px';
+                ripple.style.left = x + 'px';
+                ripple.style.top = y + 'px';
+                ripple.classList.add('absolute', 'bg-white/30', 'rounded-full', 'animate-ping', 'pointer-events-none');
+
+                button.style.position = 'relative';
+                button.style.overflow = 'hidden';
+                button.appendChild(ripple);
+
+                setTimeout(() => {
+                    ripple.remove();
+                }, 600);
+            }
+        });
+
+        // Mouse movement parallax effect
+        document.addEventListener('mousemove', (e) => {
+            const shapes = document.querySelectorAll('.shape');
+            const mouseX = e.clientX / window.innerWidth;
+            const mouseY = e.clientY / window.innerHeight;
+
+            shapes.forEach((shape, index) => {
+                const speed = (index + 1) * 0.5;
+                const x = (mouseX - 0.5) * speed * 20;
+                const y = (mouseY - 0.5) * speed * 20;
+                shape.style.transform += ` translate(${x}px, ${y}px)`;
+            });
+        });
+
+        // Add typing effect to tagline
+        function typeWriter(element, text, speed = 100) {
+            let i = 0;
+            element.textContent = '';
+
+            function type() {
+                if (i < text.length) {
+                    element.textContent += text.charAt(i);
+                    i++;
+                    setTimeout(type, speed);
+                }
+            }
+            type();
+        }
+
+        // VC Details functionality
+        function showVCDetails(vcId) {
+            const vcData = {
+                vedant: {
+                    name: 'Vedant Thakare',
+                    phone: '+91 9356982154',
+                    range: '₹50K - ₹100K',
+                    focus: 'Early Stage • Tech Focus',
+                    description: 'Investing in innovative tech startups with strong student founder teams.',
+                    initials: 'VT'
+                },
+                tejas: {
+                    name: 'Tejas Kadu',
+                    phone: '+91 93700 52755',
+                    range: '₹100K - ₹150K',
+                    focus: 'Seed Stage • Education Focus',
+                    description: 'Specialized in educational technology and student-led initiatives.',
+                    initials: 'TK'
+                },
+                lalit: {
+                    name: 'Lalit Jambhulkar',
+                    phone: '+91 95292 48809',
+                    range: '₹150K - ₹200K',
+                    focus: 'Pre-Seed • All Industries',
+                    description: 'Angel investor supporting student entrepreneurs across all sectors.',
+                    initials: 'LJ'
+                },
+                darshan: {
+                    name: 'Darshan Virulkar',
+                    phone: '+91 93733 06907',
+                    range: '₹200K - ₹250K',
+                    focus: 'Growth Stage • Tech Focus',
+                    description: 'Growth stage investor focusing on scaling tech startups with proven traction.',
+                    initials: 'DV'
+                }
+            };
+
+            const vc = vcData[vcId];
+            if (vc) {
+                const vcInfoDiv = document.getElementById('vc-info');
+                vcInfoDiv.innerHTML = `
+                    <div class="text-center mb-8">
+                        <div class="w-32 h-32 bg-incogni-white rounded-full flex items-center justify-center mx-auto mb-6">
+                            <span class="text-4xl font-bold text-incogni-black">${vc.initials}</span>
+                        </div>
+                        <h2 class="text-3xl font-bold text-incogni-white mb-2">${vc.name}</h2>
+                        <p class="text-gray-400 mb-4">${vc.focus}</p>
+                        <p class="text-lg text-gray-300 mb-6">${vc.description}</p>
+                    </div>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div class="bg-white/10 rounded-2xl p-6">
+                            <h3 class="text-incogni-white font-semibold mb-4 flex items-center">
+                                📞 Contact Information
+                            </h3>
+                            <div class="space-y-3">
+                                <div class="flex items-center justify-between">
+                                    <span class="text-gray-300">Phone:</span>
+                                    <a href="tel:${vc.phone}" class="text-incogni-white hover:text-incogni-silver transition-colors font-mono">
+                                        ${vc.phone}
+                                    </a>
+                                </div>
+                                <div class="flex items-center justify-between">
+                                    <span class="text-gray-300">WhatsApp:</span>
+                                    <a href="https://wa.me/${vc.phone.replace(/[^0-9]/g, '')}" target="_blank" class="bg-green-500 text-white px-4 py-2 rounded-full text-sm hover:bg-green-600 transition-colors">
+                                        Chat on WhatsApp
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="bg-white/10 rounded-2xl p-6">
+                            <h3 class="text-incogni-white font-semibold mb-4 flex items-center">
+                                💰 Investment Details
+                            </h3>
+                            <div class="space-y-3">
+                                <div class="flex items-center justify-between">
+                                    <span class="text-gray-300">Range:</span>
+                                    <span class="text-incogni-white font-semibold">${vc.range}</span>
+                                </div>
+                                <div class="flex items-center justify-between">
+                                    <span class="text-gray-300">Stage:</span>
+                                    <span class="text-gray-300">${vc.focus.split(' • ')[0]}</span>
+                                </div>
+                                <div class="flex items-center justify-between">
+                                    <span class="text-gray-300">Focus:</span>
+                                    <span class="text-gray-300">${vc.focus.split(' • ')[1]}</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-8 text-center">
+                        <div class="bg-incogni-white/10 border border-incogni-white/30 rounded-2xl p-6">
+                            <h4 class="text-incogni-white font-semibold mb-3">📋 How to Connect</h4>
+                            <p class="text-gray-300 text-sm leading-relaxed">
+                                Ready to pitch your startup? Call or WhatsApp ${vc.name} directly using the contact information above. 
+                                Make sure to have your business plan and pitch deck ready before reaching out.
+                            </p>
+                        </div>
+                    </div>
+                `;
+                showPage('vc-details');
+            }
+        }
+
+        // Handle form submissions with context-aware messages
+        async function handlePitchSubmission(event) {
+            event.preventDefault();
+
+            const form = event.target;
+            const submitButton = form.querySelector('button[type="submit"]');
+            const originalText = submitButton.textContent;
+
+            // Determine the context based on the current page or button text
+            let context = 'pitch';
+            const currentPage = document.querySelector('.page.active').id;
+
+            if (currentPage === 'notes' || originalText.includes('Upload') || originalText.includes('Publish')) {
+                context = 'notes';
+            } else if (currentPage === 'collaboration' || originalText.includes('Create Project')) {
+                context = 'project';
+            } else if (currentPage === 'startup' || originalText.includes('Submit Pitch')) {
+                context = 'pitch';
+            }
+
+            // Show loading state
+            if (context === 'notes' || context === 'project') {
+                submitButton.innerHTML = '<span class="loading-spinner"></span> Publishing...';
+            } else {
+                submitButton.innerHTML = '<span class="loading-spinner"></span> Submitting...';
+            }
+            submitButton.disabled = true;
+
+            try {
+                if (context === 'pitch') {
+                    // Collect Pitch Data
+                    const inputs = form.querySelectorAll('input');
+                    const selects = form.querySelectorAll('select');
+                    const textareas = form.querySelectorAll('textarea');
+                    
+                    const startupName = inputs[0] ? inputs[0].value : 'Unknown Startup';
+                    const industry = selects[0] ? selects[0].value : 'Unknown Industry';
+                    const funding = inputs[1] ? inputs[1].value : 'Not specified';
+                    const description = textareas[0] ? textareas[0].value : 'No description';
+
+                    const name = currentUser ? currentUser.name : startupName;
+                    const email = currentUser ? currentUser.email : "pitch@example.com";
+                    
+                    const message = `Pitch Name: ${startupName}\nIndustry: ${industry}\nFunding: ${funding}\nDescription: ${description}`;
+
+                    await fetchWithAuth('/contact', {
+                        method: 'POST',
+                        body: JSON.stringify({ name, email, message })
+                    });
+                } else if (context === 'notes' || context === 'project') {
+                    if (!currentUser) {
+                        throw new Error('Please login to publish notes or projects.');
+                    }
+
+                    const inputs = form.querySelectorAll('input:not([type="file"])');
+                    const textareas = form.querySelectorAll('textarea');
+                    
+                    const title = inputs[0] ? inputs[0].value : 'Untitled';
+                    const price = inputs[1] ? inputs[1].value : 'Free';
+                    const description = textareas[0] ? textareas[0].value : 'No description';
+
+                    const formData = new FormData();
+                    formData.append('title', title);
+                    formData.append('description', description);
+
+                    // For the single image input (if exists)
+                    const fileInput = form.querySelector('input[type="file"]');
+                    if (fileInput && fileInput.files[0]) {
+                        formData.append('image', fileInput.files[0]);
+                    }
+
+                    // Note: 'content' is required in Blog schema
+                    formData.append('content', `Uploaded via: ${context}\nPrice Tracker: ${price}`);
+
+                    await fetchWithAuth('/blogs', {
+                        method: 'POST',
+                        body: formData // Uses FormData, so fetchWithAuth won't set Content-Type header
+                    });
+                }
+
+                showSuccessModal(context);
+                form.reset();
+            } catch (err) {
+                console.error(err);
+                if (err.message === 'Something went wrong') {
+                    alert('Error: Please ensure you are logged in / authorized.');
+                } else {
+                    alert('Error: ' + err.message);
+                }
+            } finally {
+                submitButton.textContent = originalText;
+                submitButton.disabled = false;
+            }
+        }
+
+        // Content Loading Functions
+        async function loadNotes() {
+            try {
+                const data = await fetchWithAuth('/blogs');
+                // The actual backend returns `{ count: 1, data: [...] }` based on standard patterns
+                const blogs = data.data || [];
+
+                const grid = document.getElementById('notes-grid');
+                if (grid) {
+                    if (blogs.length === 0) {
+                        grid.innerHTML = '<div class="col-span-full text-center text-gray-400 py-12">No notes available yet. Be the first to upload!</div>';
+                        return;
+                    }
+
+                    grid.innerHTML = blogs.map(blog => `
+                        <div class="bg-white/5 backdrop-blur-sm border border-incogni-white/20 rounded-2xl overflow-hidden hover-lift">
+                            ${blog.image ? `<img src="${blog.image}" alt="${blog.title}" class="w-full h-48 object-cover">` : '<div class="w-full h-48 bg-incogni-white/20 flex flex-col items-center justify-center"><div class="text-4xl mb-2">📄</div><span class="text-incogni-white font-bold">Document</span></div>'}
+                            <div class="p-6">
+                                <div class="flex justify-between items-start mb-4">
+                                    <h3 class="text-xl font-bold text-incogni-white">${blog.title}</h3>
+                                    <span class="bg-green-500/20 text-green-400 px-3 py-1 rounded-full text-sm font-semibold">${blog.content && blog.content.includes('Price') ? blog.content.split('Price Tracker: ')[1] || 'Free' : 'Free'}</span>
+                                </div>
+                                <p class="text-gray-300 text-sm mb-4 line-clamp-3">${blog.description || 'No description provided.'}</p>
+                                <div class="flex items-center justify-between">
+                                    <div class="flex items-center space-x-2">
+                                        <div class="w-8 h-8 ${blog.author?.avatar ? '' : 'bg-gray-600'} rounded-full overflow-hidden flex items-center justify-center">
+                                            ${blog.author?.avatar ? `<img src="${blog.author.avatar}" class="w-full h-full object-cover">` : `<span class="text-white text-xs">${blog.author?.name?.charAt(0) || 'A'}</span>`}
+                                        </div>
+                                        <span class="text-sm text-gray-400">${blog.author?.name || 'Admin'}</span>
+                                    </div>
+                                    <button onclick="alert('Purchase flow to be integrated!')" class="text-incogni-white hover:text-incogni-silver font-semibold text-sm">Buy Now →</button>
+                                </div>
+                            </div>
+                        </div>
+                    `).join('');
+                }
+            } catch (error) {
+                console.error('Failed to load notes:', error);
+                const grid = document.getElementById('notes-grid');
+                if (grid) grid.innerHTML = `<div class="col-span-full text-center text-red-400 py-12">Failed to load notes: ${error.message}</div>`;
+            }
+        }
+
+        async function loadEvents() {
+            try {
+                const data = await fetchWithAuth('/events');
+                const events = data.data || [];
+
+                const feed = document.getElementById('events-feed');
+                if (feed) {
+                    if (events.length === 0) {
+                        feed.innerHTML = '<div class="text-center text-gray-400 py-6">No upcoming events right now.</div>';
+                        return;
+                    }
+
+                    feed.innerHTML = events.map(evt => `
+                        <div class="bg-white/10 rounded-2xl p-6 border-l-4 border-incogni-white hover:bg-white/20 transition-colors">
+                            <div class="flex justify-between items-start mb-4">
+                                <div>
+                                    <h3 class="text-xl font-bold text-incogni-white">${evt.title}</h3>
+                                    <p class="text-sm text-gray-400 mt-1">📅 ${new Date(evt.date).toLocaleDateString()} • 📍 ${evt.location}</p>
+                                </div>
+                            </div>
+                            ${evt.image ? `<img src="${evt.image}" alt="Event" class="w-full h-40 object-cover rounded-xl mb-4">` : ''}
+                            <p class="text-gray-300 mb-4">${evt.description}</p>
+                            
+                            <button onclick="handleEventRegistration('${evt._id}')" 
+                                class="w-full bg-incogni-white text-incogni-black py-2 rounded-xl font-bold hover:bg-incogni-silver transition-colors">
+                                Register Now
+                            </button>
+                        </div>
+                    `).join('');
+                }
+            } catch (error) {
+                console.error('Failed to load events:', error);
+                const feed = document.getElementById('events-feed');
+                if (feed) feed.innerHTML = `<div class="text-center text-red-400 py-6">Failed to load events: ${error.message}</div>`;
+            }
+        }
+
+        async function handleEventRegistration(eventId) {
+            if (!currentUser) {
+                alert('Please login to register for events.');
+                showAuthModal();
+                return;
+            }
+
+            try {
+                const college = prompt("Please enter your college name to complete registration:");
+                if (!college) return; // Cancelled
+
+                const payload = {
+                    name: currentUser.name,
+                    email: currentUser.email,
+                    college: college,
+                    eventId: eventId
+                };
+
+                await fetchWithAuth('/register-event', {
+                    method: 'POST',
+                    body: JSON.stringify(payload)
+                });
+
+                alert('Successfully registered for the event!');
+
+            } catch (error) {
+                alert('Registration failed: ' + error.message);
+            }
+        }
+
+        function showSuccessModal(context) {
+            let title, message, emoji;
+
+            switch (context) {
+                case 'notes':
+                    emoji = '<svg class="w-10 h-10 mb-4 text-incogni-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>';
+                    title = 'Notes Submitted Successfully!';
+                    message = 'Your study notes have been uploaded and published to the marketplace. Students can now discover and purchase your valuable content. You\'ll receive notifications when someone buys your notes!';
+                    break;
+                case 'project':
+                    emoji = '<svg class="w-10 h-10 mb-4 text-incogni-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"></path></svg>';
+                    title = 'Project Created Successfully!';
+                    message = 'Your project has been posted to the collaboration board. Students with matching skills will be able to find and join your project. Check your notifications for team member requests!';
+                    break;
+                case 'pitch':
+                default:
+                    emoji = '<svg class="w-10 h-10 mb-4 text-incogni-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v8l9-11h-7z"></path></svg>';
+                    title = 'Pitch Submitted Successfully!';
+                    message = 'Thank you for submitting your startup pitch. Our investor network will review your proposal and we\'ll contact you soon with potential matches.';
+                    break;
+            }
+
+            const modal = document.createElement('div');
+            modal.className = 'fixed inset-0 bg-black/80 flex items-center justify-center z-50 backdrop-blur-sm';
+            modal.innerHTML = `
+                <div class="bg-incogni-black border-2 border-incogni-white rounded-3xl p-8 max-w-md mx-4 text-center transform scale-0 transition-transform duration-300">
+                    <div class="text-6xl mb-4">${emoji}</div>
+                    <h3 class="text-2xl font-bold text-incogni-white mb-4">${title}</h3>
+                    <p class="text-gray-300 mb-6">${message}</p>
+                    <button onclick="closeModal()" class="bg-incogni-white text-incogni-black px-6 py-3 rounded-full font-bold hover:bg-incogni-silver transition-colors">
+                        Awesome! ✨
+                    </button>
+                </div>
+            `;
+
+            document.body.appendChild(modal);
+
+            // Animate modal in
+            setTimeout(() => {
+                modal.querySelector('div').style.transform = 'scale(1)';
+            }, 100);
+        }
+
+        // Channel switching functionality
+        function switchChannel(channelName) {
+            // Update active channel styling
+            const channelItems = document.querySelectorAll('.channel-item');
+            channelItems.forEach(item => {
+                item.classList.remove('bg-incogni-white/20', 'text-incogni-white');
+                item.classList.add('text-gray-300', 'hover:bg-white/10');
+            });
+
+            // Find and highlight the clicked channel
+            const clickedChannel = Array.from(channelItems).find(item =>
+                item.textContent.trim().includes(channelName)
+            );
+            if (clickedChannel) {
+                clickedChannel.classList.remove('text-gray-300', 'hover:bg-white/10');
+                clickedChannel.classList.add('bg-incogni-white/20', 'text-incogni-white');
+            }
+
+            // Update chat header
+            const chatHeader = document.querySelector('#chat .border-b h3');
+            const chatDescription = document.querySelector('#chat .border-b p');
+
+            // Channel data
+            const channelData = {
+                'general': {
+                    title: '# general',
+                    description: 'General discussion for all members',
+                    messages: [
+                        { user: 'Arjun Sharma', initial: 'A', color: 'incogni-yellow', time: '2:30 PM', message: 'Hey everyone! Just uploaded my CS101 Data Structures notes to the marketplace. Complete with examples and practice problems! 💻' },
+                        { user: 'Priya Patel', initial: 'P', color: 'blue-500', time: '2:32 PM', message: 'Thanks Arjun bhai! I was desperately looking for good data structures notes. Just purchased them <svg class="w-10 h-10 mb-4 text-incogni-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg> Your algorithms explanations are always the best!' },
+                        { user: 'Rohit Gupta', initial: 'R', color: 'green-500', time: '2:35 PM', message: 'Anyone interested in collaborating on a mobile app project for local businesses? I need a UI/UX designer and someone good with React Native! <svg class="w-10 h-10 mb-4 text-incogni-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v8l9-11h-7z"></path></svg>' },
+                        { user: 'Sneha Reddy', initial: 'S', color: 'purple-500', time: '2:38 PM', message: '@Rohit I\'m interested! I have experience with UI/UX design and Figma. Can we discuss this in DM? Also, does anyone have good notes for Database Management Systems? 🎨' },
+                        { user: 'Vikram Singh', initial: 'V', color: 'orange-500', time: '2:40 PM', message: '@Sneha I have comprehensive DBMS notes with SQL queries and normalization examples. Will upload them tonight! Also working on a fintech startup idea - anyone interested in joining? 💡' },
+                        { user: 'Ananya Joshi', initial: 'A', color: 'pink-500', time: '2:42 PM', message: 'This platform is amazing! Already made ₹2000 from selling my Machine Learning notes. @Vikram count me in for the fintech idea - I have experience with Python and data analysis 📊' }
+                    ]
+                },
+                'cs-engineering': {
+                    title: '# cs-engineering',
+                    description: 'Computer Science and Engineering discussions',
+                    messages: [
+                        { user: 'Arjun Sharma', initial: 'A', color: 'incogni-yellow', time: '1:15 PM', message: 'Working on a compiler design project. Anyone familiar with YACC and LEX? Need help with syntax analysis phase 🔧' },
+                        { user: 'Rohit Gupta', initial: 'R', color: 'green-500', time: '1:18 PM', message: '@Arjun I\'ve worked with both! YACC is great for parser generation. I can share my previous project code as reference 💻' },
+                        { user: 'Vikram Singh', initial: 'V', color: 'orange-500', time: '1:22 PM', message: 'Has anyone started the Operating Systems assignment on process scheduling algorithms? The FCFS and SJF implementations are tricky 🧠' },
+                        { user: 'Priya Patel', initial: 'P', color: 'blue-500', time: '1:25 PM', message: '@Vikram I finished it yesterday! The key is understanding the Gantt chart representation. Happy to help debug your code 📊' },
+                        { user: 'Ananya Joshi', initial: 'A', color: 'pink-500', time: '1:30 PM', message: 'Quick question: For the Computer Networks lab, which simulator are you all using? Cisco Packet Tracer or NS-3? 🌐' }
+                    ]
+                },
+                'study-groups': {
+                    title: '# study-groups',
+                    description: 'Form study groups and share resources',
+                    messages: [
+                        { user: 'Sneha Reddy', initial: 'S', color: 'purple-500', time: '11:45 AM', message: 'Starting a study group for Advanced Algorithms exam next week. We\'ll cover Dynamic Programming, Graph Algorithms, and Greedy Methods. Who\'s in? <svg class="w-10 h-10 mb-4 text-incogni-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>' },
+                        { user: 'Priya Patel', initial: 'P', color: 'blue-500', time: '11:50 AM', message: 'Count me in @Sneha! I\'m particularly weak in DP problems. Can we meet at the library tomorrow? 🏛️' },
+                        { user: 'Vikram Singh', initial: 'V', color: 'orange-500', time: '12:05 PM', message: 'I\'m interested too! I have some great practice problems from GeeksforGeeks and LeetCode. Should we create a shared Google Drive? 💾' },
+                        { user: 'Arjun Sharma', initial: 'A', color: 'incogni-yellow', time: '12:10 PM', message: 'Perfect timing! I was just looking for study partners. I can contribute notes on Graph Theory and Dijkstra\'s algorithm 🗺️' },
+                        { user: 'Ananya Joshi', initial: 'A', color: 'pink-500', time: '12:15 PM', message: 'This is exactly what I needed! I have solved 200+ DP problems on Codeforces. Let\'s schedule our first session for tomorrow 4 PM? ⏰' }
+                    ]
+                },
+                'startup-ideas': {
+                    title: '# startup-ideas',
+                    description: 'Share and discuss innovative startup concepts',
+                    messages: [
+                        { user: 'Rohit Gupta', initial: 'R', color: 'green-500', time: '10:30 AM', message: 'Idea: AI-powered food waste reduction app for college hostels. Predicts demand, optimizes portions, connects surplus food with NGOs. Thoughts? 🍽️' },
+                        { user: 'Vikram Singh', initial: 'V', color: 'orange-500', time: '10:35 AM', message: '@Rohit That\'s brilliant! Food waste is a huge problem. Have you considered partnering with hostel mess contractors? I\'d love to join as co-founder <svg class="w-10 h-10 mb-4 text-incogni-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"></path></svg>' },
+                        { user: 'Ananya Joshi', initial: 'A', color: 'pink-500', time: '10:40 AM', message: 'Love this concept! I can handle the ML models for demand prediction. My final year project was on similar forecasting algorithms 🤖' },
+                        { user: 'Sneha Reddy', initial: 'S', color: 'purple-500', time: '10:45 AM', message: 'This could scale beyond colleges to corporate cafeterias and restaurants. The market potential is huge! Need help with UI/UX design? 🎨' },
+                        { user: 'Priya Patel', initial: 'P', color: 'blue-500', time: '10:50 AM', message: 'Amazing idea! I know some VCs who are specifically looking for sustainability-focused startups. Should we prepare a pitch deck? 📈' }
+                    ]
+                },
+                'placement-prep': {
+                    title: '# placement-prep',
+                    description: 'Placement preparation and job opportunities',
+                    messages: [
+                        { user: 'Arjun Sharma', initial: 'A', color: 'incogni-yellow', time: '9:15 AM', message: 'Google is coming for campus placements next month! Anyone preparing for their coding rounds? Let\'s form a practice group 🏢' },
+                        { user: 'Ananya Joshi', initial: 'A', color: 'pink-500', time: '9:20 AM', message: '@Arjun I\'m in! Been solving problems on LeetCode daily. Currently at 150 problems solved. What\'s your strategy for system design rounds? 💻' },
+                        { user: 'Vikram Singh', initial: 'V', color: 'orange-500', time: '9:25 AM', message: 'Just got selected for Microsoft\'s final round! The key is practicing behavioral questions along with coding. Happy to share my experience 🎯' },
+                        { user: 'Priya Patel', initial: 'P', color: 'blue-500', time: '9:30 AM', message: 'Congratulations @Vikram! 🎉 Can you share some tips for the technical interview? I have Amazon\'s interview next week' },
+                        { user: 'Sneha Reddy', initial: 'S', color: 'purple-500', time: '9:35 AM', message: 'For those targeting product companies, don\'t forget to prepare for product management case studies. I have some great resources to share 📊' },
+                        { user: 'Rohit Gupta', initial: 'R', color: 'green-500', time: '9:40 AM', message: 'PSA: TCS, Infosys, and Wipro are conducting off-campus drives this weekend. Registration links in the pinned message! 🔗' }
+                    ]
+                },
+                'coding-help': {
+                    title: '# coding-help',
+                    description: 'Get help with coding problems and debugging',
+                    messages: [
+                        { user: 'Priya Patel', initial: 'P', color: 'blue-500', time: '8:45 AM', message: 'Stuck on a Python recursion problem. Getting stack overflow error. Can someone help debug this binary tree traversal code? 🐍' },
+                        { user: 'Arjun Sharma', initial: 'A', color: 'incogni-yellow', time: '8:50 AM', message: '@Priya Share your code! Recursion depth issues are common. You might need to implement iterative solution or increase recursion limit 🔄' },
+                        { user: 'Vikram Singh', initial: 'V', color: 'orange-500', time: '8:55 AM', message: 'Quick Java question: Why is my ArrayList throwing ConcurrentModificationException? I\'m only reading from it in the loop 🤔' },
+                        { user: 'Ananya Joshi', initial: 'A', color: 'pink-500', time: '9:00 AM', message: '@Vikram You\'re probably modifying the list while iterating. Use Iterator or create a copy of the list first. Common mistake! ⚠️' },
+                        { user: 'Rohit Gupta', initial: 'R', color: 'green-500', time: '9:05 AM', message: 'Anyone good with React hooks? My useEffect is causing infinite re-renders. I think it\'s a dependency array issue 🔁' },
+                        { user: 'Sneha Reddy', initial: 'S', color: 'purple-500', time: '9:10 AM', message: '@Rohit Classic React issue! Make sure your dependency array includes all variables used inside useEffect. Share the code for specific help 🎣' }
+                    ]
+                },
+                'internship-alerts': {
+                    title: '# internship-alerts',
+                    description: 'Latest internship opportunities and updates',
+                    messages: [
+                        { user: 'Sneha Reddy', initial: 'S', color: 'purple-500', time: '7:30 AM', message: '🚨 URGENT: Flipkart Summer Internship applications close today at 11:59 PM! For SDE and Product Management roles. Apply now! 🏃‍♂️' },
+                        { user: 'Rohit Gupta', initial: 'R', color: 'green-500', time: '7:35 AM', message: 'Just applied to Flipkart! Also, Zomato is hiring interns for their tech team. Stipend is ₹50K/month. Link in bio 🍕' },
+                        { user: 'Vikram Singh', initial: 'V', color: 'orange-500', time: '7:40 AM', message: 'Goldman Sachs opened applications for their Technology Summer Analyst program. Highly competitive but amazing learning opportunity! 💰' },
+                        { user: 'Ananya Joshi', initial: 'A', color: 'pink-500', time: '7:45 AM', message: 'For ML enthusiasts: NVIDIA is offering research internships in AI/ML. They provide GPU access and mentorship from senior researchers 🧠' },
+                        { user: 'Priya Patel', initial: 'P', color: 'blue-500', time: '7:50 AM', message: 'Startup internship alert! <svg class="w-10 h-10 mb-4 text-incogni-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v8l9-11h-7z"></path></svg> Razorpay, Paytm, and CRED are all hiring. Smaller teams mean more hands-on experience!' },
+                        { user: 'Arjun Sharma', initial: 'A', color: 'incogni-yellow', time: '7:55 AM', message: 'Don\'t forget about government internships! ISRO, DRDO, and BARC offer great research opportunities. Applications usually open in January 🛰️' }
+                    ]
+                }
+            };
+
+            const data = channelData[channelName] || channelData['general'];
+
+            // Update header
+            chatHeader.textContent = data.title;
+            chatDescription.textContent = data.description;
+
+            // Update messages
+            const messagesContainer = document.querySelector('#chat .flex-1.p-4');
+            messagesContainer.innerHTML = '';
+
+            data.messages.forEach(msg => {
+                const messageDiv = document.createElement('div');
+                messageDiv.className = 'flex items-start space-x-3';
+
+                const bgColorClass = msg.color === 'incogni-yellow' ? 'bg-incogni-white' : `bg-${msg.color}`;
+                const textColorClass = msg.color === 'incogni-yellow' ? 'text-incogni-black' : 'text-white';
+                const nameColorClass = msg.color === 'incogni-yellow' ? 'text-incogni-white' : `text-${msg.color.replace('-500', '-400')}`;
+
+                messageDiv.innerHTML = `
+                    <div class="w-8 h-8 ${bgColorClass} rounded-full flex items-center justify-center">
+                        <span class="${textColorClass} text-sm font-bold">${msg.initial}</span>
+                    </div>
+                    <div>
+                        <div class="flex items-center space-x-2 mb-1">
+                            <span class="${nameColorClass} font-semibold text-sm">${msg.user}</span>
+                            <span class="text-gray-400 text-xs">${msg.time}</span>
+                        </div>
+                        <p class="text-gray-300 text-sm">${msg.message}</p>
+                    </div>
+                `;
+
+                messagesContainer.appendChild(messageDiv);
+            });
+
+            // Scroll to bottom
+            messagesContainer.scrollTop = messagesContainer.scrollHeight;
+        }
+
+        // Initialize page
+        document.addEventListener('DOMContentLoaded', () => {
+            // Check auth state on load
+            checkAuthState();
+
+            // Add custom event listener for auth modal logic check
+            if (document.getElementById('auth-modal')) {
+                document.getElementById('auth-modal').addEventListener('click', (e) => {
+                    if (e.target.id === 'auth-modal') closeAuthModal();
+                });
+            }
+
+            // Load initial dynamic data if on respective pages
+            loadNotes();
+            loadEvents();
+        });
+
+
+        // Profile logic
+        async function handleProfileUpdate(event) {
+            event.preventDefault();
+            const submitBtn = document.getElementById('profile-submit-btn');
+            const originalText = submitBtn.textContent;
+            submitBtn.innerHTML = '<span class="loading-spinner"></span> Saving...';
+            submitBtn.disabled = true;
+
+            try {
+                const formData = new FormData();
+                formData.append('name', document.getElementById('profile-name').value);
+                
+                const fileInput = document.getElementById('profile-avatar-upload');
+                if (fileInput.files[0]) {
+                    formData.append('avatar', fileInput.files[0]);
+                }
+
+                const data = await fetchWithAuth('/profile', {
+                    method: 'POST',
+                    body: formData
+                });
+                
+                // Update local storage and UI
+                currentUser.name = data.name;
+                if (data.avatar) currentUser.avatar = data.avatar;
+                localStorage.setItem('incogni_user', JSON.stringify(currentUser));
+                updateUIForAuth(true);
+                alert('Profile updated successfully!');
+            } catch (err) {
+                alert('Error updating profile: ' + err.message);
+            } finally {
+                submitBtn.textContent = originalText;
+                submitBtn.disabled = false;
+            }
+        }
+
+        // Initialize Profile page
+        function initProfilePage() {
+            if (currentUser) {
+                document.getElementById('profile-name').value = currentUser.name;
+                document.getElementById('profile-email').value = currentUser.email;
+                if (currentUser.avatar) {
+                    document.getElementById('profile-initial-preview').classList.add('hidden');
+                    document.getElementById('profile-avatar-preview').src = currentUser.avatar;
+                    document.getElementById('profile-avatar-preview').classList.remove('hidden');
+                } else {
+                    document.getElementById('profile-initial-preview').textContent = currentUser.name.charAt(0).toUpperCase();
+                }
+            }
+        }
+        
+        // Theme toggle logic
+        let isLightMode = false;
+        function toggleTheme() {
+            isLightMode = !isLightMode;
+            document.body.classList.toggle('light-theme', isLightMode);
+            const icon = document.getElementById('theme-toggle-icon');
+            if (isLightMode) {
+                icon.innerHTML = '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path>';
+            } else {
+                icon.innerHTML = '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path>';
+            }
+        }
+
+        // Override showPage to init profile if needed
+        const originalShowPage = showPage;
+        showPage = function(pageId) {
+            originalShowPage(pageId);
+            if (pageId === 'profile') {
+                if (!currentUser) {
+                    alert("Please login first to view your profile.");
+                    showAuthModal();
+                    originalShowPage('home');
+                    return;
+                }
+                initProfilePage();
+            }
+        }
+    </script>
+
+
+    <!-- Footer -->
+    <footer class="py-12 bg-incogni-black border-t border-incogni-red shadow-[0_-5px_15px_rgba(185,28,28,0.3)]">
+        <div class="max-w-7xl mx-auto px-4 text-center">
+            <svg class="w-12 h-12 mb-4 mx-auto drop-shadow-[0_0_10px_rgba(255,255,255,0.5)]" viewBox="0 0 24 24"
+                fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12 3L1 9L12 15L21 10.09V17H23V9L12 3Z" fill="#ffffff" />
+                <path d="M5 13.18V17.18C5 20 8.13 22 12 22C15.87 22 19 20 19 17.18V13.18L12 17L5 13.18Z"
+                    fill="#B91C1C" />
+            </svg>
+            <h2 class="text-2xl font-black text-incogni-white tracking-widest mb-2">INCOGNITECH</h2>
+            <p class="text-gray-400">By the Students, For the Students</p>
+            <p class="text-gray-500 text-sm mt-8">© 2026 INCOGNITECH. All rights reserved By || Sumit-Sawankar ||</p>
+        </div>
+    </footer>
+    <script>
+        (function () { function c() { var b = a.contentDocument || a.contentWindow.document; if (b) { var d = b.createElement('script'); d.innerHTML = "window.__CF$cv$params={r:'96e00fa331f19146',t:'MTc1NTAwMjYzNi4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);"; b.getElementsByTagName('head')[0].appendChild(d) } } if (document.body) { var a = document.createElement('iframe'); a.height = 1; a.width = 1; a.style.position = 'absolute'; a.style.top = 0; a.style.left = 0; a.style.border = 'none'; a.style.visibility = 'hidden'; document.body.appendChild(a); if ('loading' !== document.readyState) c(); else if (window.addEventListener) document.addEventListener('DOMContentLoaded', c); else { var e = document.onreadystatechange || function () { }; document.onreadystatechange = function (b) { e(b); 'loading' !== document.readyState && (document.onreadystatechange = e, c()) } } } })();</script>
+</body>
+
+</html>
